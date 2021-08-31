@@ -71,6 +71,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ftp工具的搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/31/ftp%E5%B7%A5%E5%85%B7%E7%9A%84%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time class="dt-published" datetime="2021-08-31T09:08:48.000Z" itemprop="datePublished">2021-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/31/ftp%E5%B7%A5%E5%85%B7%E7%9A%84%E6%90%AD%E5%BB%BA/">ftp工具的搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>我们在工作中经常使用到ftp服务器。包括我们的server-u服务器，但是我们的server-u是收费软件，如果公司对软件版权问题比较注重的话，不建议使用server-u，特别是如果公司有安装了server2008的话，我们就可以使用server2008子代的IIS工具来搭建我们的ftp服务器。今天我们就来一步一步搭建我们的ftp服务器。</p>
+<h1 id="1、环境要求。"><a href="#1、环境要求。" class="headerlink" title="1、环境要求。"></a>1、环境要求。</h1><p>安装有windows server 2008或者其他服务器版本的window操作系统的机器。</p>
+<h1 id="2、创建用户组"><a href="#2、创建用户组" class="headerlink" title="2、创建用户组"></a>2、创建用户组</h1><p>server 2008对用户组和用户的管理比较严格，而且我们作为一个ftp服务器，肯定涉及到非常多的用户，单独使用用户来管理工作量非常大而且不显示，所以这里我们首先创建一个用户组ftpGroup。</p>
+<p>a、点击开始-&gt;管理工具-&gt;服务器管理器</p>
+<p>b、右键 新建组</p>
+<h1 id="3、创建用户"><a href="#3、创建用户" class="headerlink" title="3、创建用户"></a>3、创建用户</h1><p>作为ftp服务器，需要多个用户，我们这里只创建一个其他的大家按照同样的方法创建即可。</p>
+<p>a、用户 -&gt;新用户</p>
+<p>b、输入用户名</p>
+<p>输入用户密码（用户密码会被进行简单性校验，最好包含字母字符和数字）</p>
+<p>去掉用户下次登录时必须更改密码选项</p>
+<p>勾选密码永不过期，点击创建。</p>
+<p>c、创建完成后会再次弹出窗口用于创建下个用户，这里我们不在创建，大家根据需求可以创建多个。</p>
+<p>d、修改用户组</p>
+<p>ftpuser1-&gt;右键-&gt;属性</p>
+<p>e 、修改用户属组</p>
+<p>切换到隶属于标签</p>
+<p>点击添加，输入组名称后点击检查名称</p>
+<p>点击之后会在名称之前加上本机的名称，这个大家跟我的会不一样，没有关系，确定。</p>
+<p>删除其他属组</p>
+<p>选择Users属组，点击删除，应用，确定。</p>
+<h1 id="4、安装FTP服务器"><a href="#4、安装FTP服务器" class="headerlink" title="4、安装FTP服务器"></a>4、安装FTP服务器</h1><p>a、点击角色-&gt;添加角色</p>
+<p>勾选web服务器IIS</p>
+<p>勾选ftp服务器</p>
+<h1 id="5、配置FTP服务器"><a href="#5、配置FTP服务器" class="headerlink" title="5、配置FTP服务器"></a>5、配置FTP服务器</h1><p>a、角色-&gt;web服务器-&gt;internet信息服务（IIS）管理器</p>
+<p>在主机名称上右键-&gt;添加FTP站点</p>
+<p>注意站点名称不要包含中文,其他没有要求。</p>
+<p>物理路径选定本地文件夹。</p>
+<p>没有SSL证书，直接选择无。</p>
+<p>身份验证选择基本</p>
+<p>授权选择指定角色或用户组</p>
+<p>ftpGroup （这里使用我们第一步创建的ftp分组）</p>
+<p>权限（读写权限）</p>
+<h1 id="6、设置目录权限"><a href="#6、设置目录权限" class="headerlink" title="6、设置目录权限"></a>6、设置目录权限</h1><p>找到磁盘文件,右键-&gt;属性</p>
+<p>切换到安全标签，点击编辑</p>
+<p>点击添加-&gt;输入组名称ftpGroup-&gt;检查-&gt;确定</p>
+<p>应用 -&gt;确定</p>
+<h1 id="7、重启服务器（可选）"><a href="#7、重启服务器（可选）" class="headerlink" title="7、重启服务器（可选）"></a>7、重启服务器（可选）</h1><p>由于涉及用户组的变更，可能需要重启后才能生效。建议重启服务器后再测试连接。</p>
+<p>否则可能导致无法连接ftp服务器。</p>
+<h1 id="8、连接验证"><a href="#8、连接验证" class="headerlink" title="8、连接验证"></a>8、连接验证</h1><p>a、本机浏览器验证</p>
+<p>网址：<a href="ftp://localhost/">ftp://localhost/</a></p>
+<p>b、局域网浏览器访问</p>
+<p>查看服务器ip地址为192.168.128.140</p>
+<p>使用局域网内其他电脑访问<a href="ftp://192.168.128.140/">ftp://192.168.128.140</a></p>
+<p>c、xftp访问</p>
+<p>设置主机为192.168.128.140</p>
+<p>设置协议为FTP</p>
+<p>输入用户名和密码</p>
+<p>切换到选项卡，设置编码为GBK （如果使用默认的Unicode上传会导致上传的中文名称文件乱码）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/31/ftp%E5%B7%A5%E5%85%B7%E7%9A%84%E6%90%AD%E5%BB%BA/" data-id="ckszuu68o0000n8ty7xfm7abq" data-title="ftp工具的搭建" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-appium环境搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="article-date">
@@ -934,6 +1020,10 @@
       <ul>
         
           <li>
+            <a href="/2021/08/31/ftp%E5%B7%A5%E5%85%B7%E7%9A%84%E6%90%AD%E5%BB%BA/">ftp工具的搭建</a>
+          </li>
+        
+          <li>
             <a href="/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">appium环境搭建</a>
           </li>
         
@@ -947,10 +1037,6 @@
         
           <li>
             <a href="/2021/08/30/selenium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">selenium自动化测试</a>
-          </li>
-        
-          <li>
-            <a href="/2021/08/30/hello-world/">Hello World</a>
           </li>
         
       </ul>
