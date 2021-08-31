@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>缺陷的处理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.缺陷的基本理论1. 什么是缺陷软件存在着不符合质量需求或违背软件用户、客户、企业意愿的问题，这就是软件缺陷 （Defect），又叫“Bug（臭虫）”。 2. 缺陷的判断标准软件未达到产品说明书标明的功能； 产品说明书简称为说明（spec）或产品说明（product spec），是软件开发小组 的一个协定。它对开发的产品进行定义，给出产品的细节、如何做、做什么、 不能做什么。这种协定从简单的口头">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缺陷的处理">
+<meta property="og:url" content="http://example.com/2021/08/31/%E7%BC%BA%E9%99%B7%E7%9A%84%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.缺陷的基本理论1. 什么是缺陷软件存在着不符合质量需求或违背软件用户、客户、企业意愿的问题，这就是软件缺陷 （Defect），又叫“Bug（臭虫）”。 2. 缺陷的判断标准软件未达到产品说明书标明的功能； 产品说明书简称为说明（spec）或产品说明（product spec），是软件开发小组 的一个协定。它对开发的产品进行定义，给出产品的细节、如何做、做什么、 不能做什么。这种协定从简单的口头">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-31T09:44:48.000Z">
+<meta property="article:modified_time" content="2021-08-31T10:01:51.572Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-缺陷的处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/31/%E7%BC%BA%E9%99%B7%E7%9A%84%E5%A4%84%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2021-08-31T09:44:48.000Z" itemprop="datePublished">2021-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      缺陷的处理
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-缺陷的基本理论"><a href="#1-缺陷的基本理论" class="headerlink" title="1.缺陷的基本理论"></a>1.缺陷的基本理论</h1><h2 id="1-什么是缺陷"><a href="#1-什么是缺陷" class="headerlink" title="1. 什么是缺陷"></a>1. <strong>什么是缺陷</strong></h2><p>软件存在着不符合质量需求或违背软件用户、客户、企业意愿的问题，这就是软件缺陷 （Defect），又叫“Bug（臭虫）”。</p>
+<h2 id="2-缺陷的判断标准"><a href="#2-缺陷的判断标准" class="headerlink" title="2. 缺陷的判断标准"></a>2. <strong>缺陷的判断标准</strong></h2><p><strong>软件未达到产品说明书标明的功能；</strong></p>
+<p>产品说明书简称为说明（spec）或产品说明（product spec），是软件开发小组 的一个协定。它对开发的产品进行定义，给出产品的细节、如何做、做什么、 不能做什么。这种协定从简单的口头说明到正式的书面文档有多种形式。 </p>
+<p><strong>软件出现了产品说明书指明不会出现的错误；</strong> </p>
+<p>如金融软件 7*24 工作不能宕机  </p>
+<p><strong>软件功能超出产品说明书指明范围；</strong> </p>
+<p><strong>软件未达到产品说明书虽未指出但应达到的目标；</strong> </p>
+<p>如软件在断电时的意外处理 </p>
+<p><strong>软件测试员认为软件难以理解、不易使用、运行速度缓慢，或者最终用户认为不好。</strong></p>
+<p>主要体现在易用性方面</p>
+<h2 id="3-缺陷的表现形式"><a href="#3-缺陷的表现形式" class="headerlink" title="3. 缺陷的表现形式"></a>3. <strong>缺陷的表现形式</strong></h2><p>A. 用户要求的功能、特性没有实现或部分实现。 </p>
+<p>B. 运行出错，包括运行中断、系统崩溃、界面混乱等。 </p>
+<p>C. 数据结果不正确、精度不够、不完整或格式不统一。 </p>
+<p>D. 文字显示内容不正确或拼写错误。 </p>
+<p>E. 系统性能低下、系统资源浪费。</p>
+<h2 id="4-缺陷的注意点"><a href="#4-缺陷的注意点" class="headerlink" title="4. 缺陷的注意点"></a>4. <strong>缺陷的注意点</strong></h2><h3 id="a-无效的缺陷"><a href="#a-无效的缺陷" class="headerlink" title="a. 无效的缺陷"></a>a. <strong>无效的缺陷</strong></h3><p>特点：指测试人员提交的不是缺陷的缺陷；怎么办：正确理解需求； 做好复现。</p>
+<h3 id="b-重复的缺陷"><a href="#b-重复的缺陷" class="headerlink" title="b. 重复的缺陷"></a>b. <strong>重复的缺陷</strong></h3><p><strong>特点</strong>：同一个缺陷 A 测试工程师提交后，B 测试工程师又提交，或者自己提交的缺陷，与之前提交的缺陷相同或类似；</p>
+<p> <strong>怎么办</strong> 尽量避免两个人同时测试同一模块； 自己提交的缺陷与自己的重复，提交前查找一下，增强开发知识。</p>
+<h3 id="c-有争议的缺陷"><a href="#c-有争议的缺陷" class="headerlink" title="c. 有争议的缺陷"></a>c. <strong>有争议的缺陷</strong></h3><p>跟有关人员进行沟通、讨论 或者 搁置。</p>
+<h3 id="d-无法再现的缺陷"><a href="#d-无法再现的缺陷" class="headerlink" title="d. 无法再现的缺陷"></a>d. <strong>无法再现的缺陷</strong></h3><p>首先，对这样的缺陷进行详细的记录，使用不同办法去尝试复现。其次，要合理地安排时间，要考虑到测试项目的整体进度，对一时难以再现的缺陷 。 可以暂时搁置，以保证项目的正常进度，并尽快提交给开发人员。 最后，在测试过程中对未再现缺陷予以关注。</p>
+<h1 id="2-缺陷报告"><a href="#2-缺陷报告" class="headerlink" title="2.缺陷报告"></a>2.缺陷报告</h1><h2 id="1-缺陷报告的组成"><a href="#1-缺陷报告的组成" class="headerlink" title="1. 缺陷报告的组成"></a>1. <strong>缺陷报告的组成</strong></h2><ul>
+<li>缺陷的标题/缺陷摘要/缺陷概述/缺陷基本信息 </li>
+<li>预处理 </li>
+<li>复现步骤 </li>
+<li>期望结果 </li>
+<li>实际结果 </li>
+<li>缺陷的严重程度 </li>
+<li>缺陷的优先级 </li>
+<li>测试的软件和硬件环境 </li>
+<li>测试的软件版本 </li>
+<li>缺陷的类型 </li>
+</ul>
+<h2 id="2-怎么提交高质量的缺陷报告？"><a href="#2-怎么提交高质量的缺陷报告？" class="headerlink" title="2. 怎么提交高质量的缺陷报告？"></a>2. <strong>怎么提交高质量的缺陷报告？</strong></h2><ol>
+<li><p>尽早提交缺陷报告。 </p>
+</li>
+<li><p>清楚地说明此问题对用户价值的危害。 </p>
+</li>
+<li><p>提供尽可能多的技术信息（如包含复现该缺陷需要的环境变量或测试所用的数据文 件），方便程序员调试。 </p>
+</li>
+<li><p>报告的软件缺陷进行了必要的隔离，报告的缺陷信息具体、准确。 </p>
+</li>
+<li><p>易于搜索软件测试报告的缺陷。 </p>
+</li>
+<li><p>一个缺陷报告中只报告了一种缺陷。 </p>
+</li>
+<li><p>缺陷报告中不要提问题。 </p>
+</li>
+<li><p>避免常见的错误 </p>
+</li>
+</ol>
+<p>a. 我（I）、你（You）、他/她（He/She） </p>
+<p>b. 情绪化的语言和强调符号！！！</p>
+<p>c. 似乎（Seems）、看上去可能（Appears to be） </p>
+<p>d. 认为比较幽默的内容 </p>
+<p>e. 不确定的测试问题（Issues）</p>
+<h1 id="3-缺陷的分类"><a href="#3-缺陷的分类" class="headerlink" title="3.缺陷的分类"></a>3.缺陷的分类</h1><h2 id="1-根据缺陷类型分类"><a href="#1-根据缺陷类型分类" class="headerlink" title="1.根据缺陷类型分类"></a>1.根据缺陷类型分类</h2><ul>
+<li> 功能缺陷 </li>
+<li> 界面缺陷 </li>
+<li>文档缺陷 </li>
+<li>代码缺陷 </li>
+<li>算法错误 </li>
+<li>性能缺陷</li>
+</ul>
+<h2 id="2-根据缺陷的等级分类"><a href="#2-根据缺陷的等级分类" class="headerlink" title="2. 根据缺陷的等级分类"></a>2. <strong>根据缺陷的等级分类</strong></h2><h3 id="A类—致命缺陷，包括以下各种错误："><a href="#A类—致命缺陷，包括以下各种错误：" class="headerlink" title="A类—致命缺陷，包括以下各种错误："></a>A类—致命缺陷，包括以下各种错误：</h3><ul>
+<li><p>由于程序所引起的死机，非法退出； </p>
+</li>
+<li><p>死循环； </p>
+</li>
+<li><p>数据库发生死锁； </p>
+</li>
+<li><p>因错误操作导致的程序中断； </p>
+</li>
+<li><p>功能错误； </p>
+</li>
+<li><p>与数据库连接错误； </p>
+</li>
+<li><p>数据通讯错误</p>
+<h3 id="B-类—严重缺陷，包括以下各种错误："><a href="#B-类—严重缺陷，包括以下各种错误：" class="headerlink" title="B 类—严重缺陷，包括以下各种错误："></a>B 类—严重缺陷，包括以下各种错误：</h3></li>
+<li><p>程序错误； </p>
+</li>
+<li><p>程序接口错误； </p>
+</li>
+<li><p>数据库的表、业务规则、缺省值未加完整性等约束条件</p>
+</li>
+</ul>
+<h3 id="C-类一般缺陷，包括以下各种错误："><a href="#C-类一般缺陷，包括以下各种错误：" class="headerlink" title="C 类一般缺陷，包括以下各种错误："></a>C 类一般缺陷，包括以下各种错误：</h3><ul>
+<li>操作界面错误（包括数据窗口内列名定义、含义是否一致）； </li>
+<li>打印内容、格式错误； </li>
+<li>简单的输入限制未放在前台进行控制； </li>
+<li>删除操作未给出提示； </li>
+<li>数据库表中有过多的空字段</li>
+</ul>
+<h3 id="D类—较小缺陷，包括以下各种错误："><a href="#D类—较小缺陷，包括以下各种错误：" class="headerlink" title="D类—较小缺陷，包括以下各种错误："></a>D类—较小缺陷，包括以下各种错误：</h3><ul>
+<li>界面不规范； </li>
+<li>辅助说明描述不清楚； </li>
+<li>输入输出不规范； </li>
+<li>长操作未给用户提示； </li>
+<li>提示窗口文字未采用行业术语； </li>
+<li>可输入区域和只读区域没有明显的区分标志</li>
+</ul>
+<h2 id="4-缺陷报告的处理"><a href="#4-缺陷报告的处理" class="headerlink" title="4.缺陷报告的处理"></a>4.缺陷报告的处理</h2><ul>
+<li>软件测试人员提交缺陷报告； </li>
+<li>测试负责人审核后将缺陷报告分配给相关的开发人员修改； </li>
+<li>缺陷被修改后由测试人员根据缺陷报告中的修改记录进行返测； </li>
+<li>返测通过的缺陷报告由负责人关闭，返测未通过的缺陷报告直接返回开发人员重新修改，缺陷报告直到缺陷被修复以后才关闭； </li>
+<li>关闭或已解决的缺陷报告可能会被阶段性的复审重新打开，这些报告一旦被再次打开应该立即处理。</li>
+</ul>
+<h1 id="4-常用的缺陷管理工具"><a href="#4-常用的缺陷管理工具" class="headerlink" title="4.常用的缺陷管理工具"></a>4.常用的缺陷管理工具</h1><p>Bugzilla </p>
+<p>Mantis </p>
+<p>Jira </p>
+<p>ZenTao（禅道）</p>
+<h1 id="5-测试报告"><a href="#5-测试报告" class="headerlink" title="5.测试报告"></a>5.测试报告</h1><p> <strong>测试报告一般包含哪些内容？</strong></p>
+<p><strong>测试报告的版本、测试的人员和时间、测试所覆盖的缺陷</strong>——测试组在这轮测试中所有处理的缺陷，报告了测试组长处理的缺陷和实施工程师验证的缺陷。不仅要写出覆盖缺陷的总数，还要写明这些缺陷的去向。<strong>测试新发现的缺陷数量、上一版本活动缺陷的数量</strong>，经过此轮测试，所有活动缺陷的数量及其状态分类</p>
+<p><strong>测试评估</strong>——写明在这一版本中，那些功能被实现了，那些还没有实现，这里只需写明和上一版本不同之处即可 </p>
+<p><strong>急待解决的问题</strong>—写明当前项目组中面临的最优先的问题，可以重复提出 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/31/%E7%BC%BA%E9%99%B7%E7%9A%84%E5%A4%84%E7%90%86/" data-id="ckszwiqcm0000mkty3f9aae1g" data-title="缺陷的处理" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/31/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">软件测试流程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/08/31/%E7%BC%BA%E9%99%B7%E7%9A%84%E5%A4%84%E7%90%86/">缺陷的处理</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/31/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/">软件测试流程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/31/ftp%E5%B7%A5%E5%85%B7%E7%9A%84%E6%90%AD%E5%BB%BA/">ftp工具的搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">appium环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/30/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/">测试理论</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
