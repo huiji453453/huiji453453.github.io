@@ -166,6 +166,165 @@
 <p><strong>仅结构：create table 新表名 like 源表;</strong><br><strong>结构和数据：create table 新表名 select * from 源表;</strong></p>
 <h1 id="7-导入与导出"><a href="#7-导入与导出" class="headerlink" title="7.导入与导出"></a><strong>7.导入与导出</strong></h1><p>​    <strong>把数据库备份</strong><br>​        <strong>选择库——》备份/导出——》以sql转储文件…–&gt;取名–》导出</strong><br>​    <strong>把数据导入到数据库里面来</strong><br>​        <strong>准备一个数据库</strong><br>​        <strong>数据库——》导入以sql转储文件…–&gt;选择文件——》执行</strong></p>
 <p>​                                                                                                                                                                                                         </p>
+<h1 id="8-数据类型和约束"><a href="#8-数据类型和约束" class="headerlink" title="8.数据类型和约束"></a>8.<strong>数据类型和约束</strong></h1><p>创建数据库时，没有设置编码，那么无法保存中文</p>
+<p>解决方案：在创建数据库名称后面加上default character SET=’utf8’</p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">drop database if EXISTS BBB;</span><br><span class="line"></span><br><span class="line">create database BBB default character SET=&#x27;utf8&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="一、-数据类型"><a href="#一、-数据类型" class="headerlink" title="一、 数据类型"></a><strong>一、 数据类型</strong></h4><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>整数</td>
+<td>tinyint(1字节)</td>
+<td>范围：-128<del>127 /无符号范围（0</del>255）</td>
+</tr>
+<tr>
+<td>smallint(2字节)</td>
+<td>范围：-32768<del>32767 /无符号范围（0</del>65535）</td>
+<td></td>
+</tr>
+<tr>
+<td>mediumint(3字节)</td>
+<td>范围：-8388608<del>8388607 /无符号范围（0</del>16777215）</td>
+<td></td>
+</tr>
+<tr>
+<td>int(4字节)</td>
+<td>范围：-2147483648<del>21474483647 /无符号范围（0</del>4294967295）</td>
+<td></td>
+</tr>
+<tr>
+<td>bigint(8字节)</td>
+<td>范围：-9233372036854775808<del>9233372036854775808/无符号范围（0</del>18446744073709551615）</td>
+<td></td>
+</tr>
+<tr>
+<td>小数</td>
+<td>float(4字节)</td>
+<td>单精度浮点，精准6个数字</td>
+</tr>
+<tr>
+<td>double(8字节)</td>
+<td>双精度浮点，精准17个数字</td>
+<td></td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>Decimal(5,2) 则表示范围为：-999.99~999.99</td>
+<td></td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>char</td>
+<td>固定长度字符串，一个汉字两个字节</td>
+</tr>
+<tr>
+<td>varchar</td>
+<td>可变长度字符串，一个汉字两个字节</td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td>长文本</td>
+<td></td>
+</tr>
+<tr>
+<td>日期类型</td>
+<td>date</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>time</td>
+<td>HH:ii:ss</td>
+<td></td>
+</tr>
+<tr>
+<td>dateTime</td>
+<td>YYYY-MM-DD HH:ii:ss</td>
+<td></td>
+</tr>
+<tr>
+<td>year</td>
+<td>仅表示年份</td>
+<td></td>
+</tr>
+<tr>
+<td>布尔类型</td>
+<td>bit</td>
+<td>只能保存0|1，用来表示真和假</td>
+</tr>
+<tr>
+<td>二进制文件</td>
+<td>blob</td>
+<td>存储二进制文件，所有带Blob的都是二进制类型</td>
+</tr>
+</tbody></table>
+<p><strong>char和varchar的区别：</strong></p>
+<p>  char(10)  一个汉字两个字节  固定长度  ‘你好    ’</p>
+<p>  varchar(10)  一个汉字两个字节 可变长度 ‘你好’</p>
+<p><strong>常用数据类型：</strong></p>
+<p>int float double decimal char varchar datetime bit</p>
+<p><strong>MYSQL建议：</strong></p>
+<p>应该用日期和时间数据类型，而不是用字符串来存储日期和时间。</p>
+<p>尽量采用精确小数类型（例如decimal），而不采用浮点数类型</p>
+<p>尽量避免NULL字段，建议将字段指定为NOT NULL约束。</p>
+<h4 id="二、-SQL建表"><a href="#二、-SQL建表" class="headerlink" title="二、 SQL建表"></a><strong>二、 SQL建表</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">use 数据库; -- 先切换到具体的数据库</span><br><span class="line"></span><br><span class="line">drop table if exists classes; -- 判断存在则删除</span><br><span class="line"></span><br><span class="line">create table classes  -- 创建班级表</span><br><span class="line"></span><br><span class="line">(</span><br><span class="line"></span><br><span class="line">  CID int not null,</span><br><span class="line"></span><br><span class="line">  Cname varchar(20) null</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>注：</p>
+<p>1.每条语句后面使用分号结束</p>
+<p>2.列和列之间使用逗号隔开，最后一列无需逗号</p>
+<p>3.默认有符号（zerofill），无符号（unsigned）</p>
+<h4 id="三、-约束"><a href="#三、-约束" class="headerlink" title="三、 约束"></a><strong>三、 约束</strong></h4><p><strong>约束关键字：</strong></p>
+<p> 数据类型：省</p>
+<p> 非空约束：not null</p>
+<p> 默认值约束：default</p>
+<p> 检查约束：没有</p>
+<p> 主键约束：primary key</p>
+<p> 唯一约束：unique</p>
+<p> 标识列（自动增长）：auto_increment</p>
+<p> 外键约束：foreign key</p>
+<p><strong>如何添加约束：</strong>建表时数据类型后面直接加约束</p>
+<p><strong>如：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Drop table if exists students; -- 判断存在则删除</span><br><span class="line"></span><br><span class="line">create table students</span><br><span class="line"></span><br><span class="line">(</span><br><span class="line"></span><br><span class="line">  SID int not null primary key auto_increment,   -- 非空 主键 自动增长      </span><br><span class="line"></span><br><span class="line">  Sname varchar(20) null,							 -- 允许空</span><br><span class="line"></span><br><span class="line">  Ssex varchar(2) not null default ’男’,     -- 默认’男’</span><br><span class="line"></span><br><span class="line">  SCard varchar(18) not null unique,         -- 唯一</span><br><span class="line"></span><br><span class="line">  SCID int,</span><br><span class="line"></span><br><span class="line"> foreign key(SCID) references classes(CID)    -- 单独加外键</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、-表的其它操作"><a href="#四、-表的其它操作" class="headerlink" title="四、 表的其它操作"></a><strong>四、 表的其它操作</strong></h4><p><strong>修改表名：</strong></p>
+<p> <code> alter table 旧表名 rename 新表名;</code></p>
+<p><strong>修改表结构：</strong></p>
+<p><code>  alter table 表名 add 字段名 数据类型 [约束];</code></p>
+<p><code>  alter table 表名 drop 字段名;</code></p>
+<p><code>  alter table 表名 change 旧字段名 新字段名 新数据类型; --修改字段名和数据类型</code></p>
+<p><code>  alter table 表名 modify 字段名 新数据类型;  --只修改字段数据类型</code></p>
+<p><strong>复制表：</strong></p>
+<p>  仅结构：<code>create table 新表名 like 源表;</code></p>
+<p>  结构和数据：<code>create table 新表名 select * from 源表;</code></p>
+<p><strong>创建表之后，再添加或删除约束:</strong></p>
+<p>1.非空约束</p>
+<p>添加:<code>alter table 表名 modify 列名 数据类型 not null </code></p>
+<p>删除:<code>alter table 表名 modify 列名 数据类型 null</code></p>
+<p>2.主键约束</p>
+<p>添加:<code>alter table 表名 add primary key (字段)</code></p>
+<p>删除:<code>alter table 表名 drop primary key</code></p>
+<p>3.唯一约束</p>
+<p>添加<code>:alter table 表名 add unique 约束名（字段）</code></p>
+<p>删除:<code>alter table 表名 drop key 约束名</code></p>
+<p>4.自动增长（需要是主键，才能自动增长）</p>
+<p>添加:<code>alter table 表名 modify 列名 int primary key auto_increment</code></p>
+<p>删除:<code>alter table 表名 modify 列名 int  </code></p>
+<p>5.外键约束</p>
+<p>添加:<code>alter table 表名 add constraint 约束名 foreign key(外键列) </code></p>
+<p>references 主键表（主键列）</p>
+<p>删除:<code>alter table 表名 drop foreign key 约束名</code></p>
+<p>6.默认值</p>
+<p>添加:<code>alter table 表名 alter 列名 set default &#39;值&#39;</code></p>
+<p>删除:<code>alter table 表名 alter 列名 drop default</code></p>
 
       
     </div>
