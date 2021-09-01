@@ -71,6 +71,281 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-adb命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/01/adb%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2021-09-01T08:11:53.000Z" itemprop="datePublished">2021-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/01/adb%E5%91%BD%E4%BB%A4/">adb命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Android-调试桥"><a href="#一、Android-调试桥" class="headerlink" title="一、Android 调试桥"></a>一、Android 调试桥</h2><p>adb ( Android Debug Bridge)是一个通用命令行工具，其允许您与模拟器实例或连接的 Android 设备进行通信。它可为各种设备操作提供便利，如安装和调试应用。</p>
+<h2 id="二、adb-的工作原理"><a href="#二、adb-的工作原理" class="headerlink" title="二、adb 的工作原理"></a>二、adb 的工作原理</h2><p>启动一个 adb 客户端时，此客户端首先检查是否有已运行的 adb 服务器进程。如果没有，它将启动服务器进程。当服务器启动时，它与本地 TCP 端口 5037 绑定，并侦听从 adb 客户端发送的命令—所有 adb 客户端均使用端口 5037 与 adb 服务器通信</p>
+<h2 id="三、adb常用命令"><a href="#三、adb常用命令" class="headerlink" title="三、adb常用命令"></a>三、adb常用命令</h2><h5 id="查看adb版本"><a href="#查看adb版本" class="headerlink" title="查看adb版本"></a>查看adb版本</h5><p><code>adb  version</code></p>
+<h5 id="连接夜神模拟器"><a href="#连接夜神模拟器" class="headerlink" title="连接夜神模拟器"></a>连接夜神模拟器</h5><p><code>adb connect 127.0.0.1:62001</code></p>
+<p>连接自己的安卓手机查看下方的链接：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39969226/article/details/87897863">https://blog.csdn.net/qq_39969226/article/details/87897863</a></p>
+<p>夜神模拟器的端口是规律的，第一个模拟器端口是62001，第二个模拟器端口是62025，第三个是62025+1，依此类推。</p>
+<h5 id="查看设备信息"><a href="#查看设备信息" class="headerlink" title="查看设备信息"></a>查看设备信息</h5><p><code>adb devices</code></p>
+<p>如果出现如下提示：</p>
+<p><code>adb server version (31) doesn&#39;t match this client (36); killing...</code></p>
+<p>· 原因： adb版本不对 ,Androd SDK的版本和模拟器的adb版本不一致</p>
+<p>· <strong>解决方案：将Android SDK的 adb替换掉模拟器的adb和nox——adb即可。模拟器adb路径 ：{安装Path}Noxbin</strong></p>
+<h5 id="adb-shell"><a href="#adb-shell" class="headerlink" title="adb shell"></a>adb shell</h5><p>android 设备底层是 linux 系统，所以连接上设备，也可以在adb命令行中操作对应的Linux指令。</p>
+<p> shell 是 linux 系统的字符交互界面。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">#进入指定设备shell</span><br><span class="line"></span><br><span class="line">adb  -s 127.0.0.1:62001 shell</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">#退出adb shell</span><br><span class="line"></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p>进入adb shell后有两种状态显示：#代表有root权限，$代表没有root权限</p>
+<p><code>root@android:/ #</code></p>
+<p><code>shell@mx4:/ $</code></p>
+<h6 id="root知识小科普"><a href="#root知识小科普" class="headerlink" title="root知识小科普"></a>root知识小科普</h6><p>“To err is human, but to really foul up everything, you need root password.”</p>
+<p>“人非圣贤孰能无过，但是拥有root密码就真的万劫不复了。”</p>
+<p>root用户是系统中唯一的超级管理员，它具有等同于操作系统的权限。一些需要root权限的应用，譬如广告阻挡，卸载系统预装App是需要root权限的。</p>
+<h5 id="Adb相关命令参考"><a href="#Adb相关命令参考" class="headerlink" title="Adb相关命令参考"></a>Adb相关命令参考</h5><p>下面的命令在连接夜神模拟器之后进行操作</p>
+<p>命令参考夜神模拟器官网</p>
+<p><a target="_blank" rel="noopener" href="https://www.yeshen.com/faqs/H15tDZ6YW">https://www.yeshen.com/faqs/H15tDZ6YW</a></p>
+<p>1、如何把电脑上的文件或文件夹传到模拟器里面？</p>
+<p>adb push D:/sex.avi /mnt/avi/</p>
+<p>2、如何把模拟器里面的文件或文件夹传到电脑上？</p>
+<p>adb pull /mnt/avi/sex.avi D:/avi/</p>
+<p>3、安装APK</p>
+<p>adb install d:qq.apk</p>
+<p>安装报错参考：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lxs1314/p/6214154.html">https://www.cnblogs.com/lxs1314/p/6214154.html</a></p>
+<p>4、卸载APK</p>
+<p>adb uninstall 包名</p>
+<p>比如卸载QQ：adb uninstall com.tencent.mobileqq</p>
+<p>5、PM包命令</p>
+<p>1）获取模拟器所有包名</p>
+<p>adb shell pm list packages</p>
+<p>2）获取模拟器所有包名并且包括APK路径</p>
+<p>adb shell pm list packages -f</p>
+<p>3）获取包名对应的APK路径</p>
+<p>adb shell pm path packageName</p>
+<p>4）清理应用数据</p>
+<p>adb shell pm clear packageName</p>
+<p>6、启动应用</p>
+<p>adb shell am start -n 包名/Activity类名</p>
+<p>例子：启动应用宝：</p>
+<p>adb shell am start -n com.tencent.android.qqdownloader/com.tencent.assistant.activity.SplashActivity</p>
+<p>指定模拟器启动动应用宝：</p>
+<p>adb -s 127.0.0.1:5555 shell am start -n com.tencent.android.qqdownloader/com.tencent.assistant.activity.SplashActivity</p>
+<p>7、关闭应用</p>
+<p>adb shell am force-stop 包名</p>
+<p>8、模拟输入</p>
+<p>adb shell input text 字符串(不支持中文)</p>
+<p>9、模拟按键</p>
+<p>adb shell input keyevent 键值</p>
+<p>10、模拟鼠标点击</p>
+<p>adb shell input tap X Y</p>
+<p>11、模拟鼠标滑动</p>
+<p>adb shell input swipe X1 Y1 X2 Y2</p>
+<p>12、截屏</p>
+<p>adb shell screencap -p /sdcard/screencap.png</p>
+<p>13、设置手机IMEI/IMSI/手机号/SIM卡序列号</p>
+<p>adb shell setprop persist.nox.modem.imei 352462010682470</p>
+<p>adb shell setprop persist.nox.modem.imsi 460000000000000</p>
+<p>adb shell setprop persist.nox.modem.phonumber 15605569000</p>
+<p>adb shell setprop persist.nox.modem.serial 89860000000000000000</p>
+<p>14、nox_adb shell进去然后执行下面的命令修改经纬度</p>
+<p>setprop persist.nox.gps.latitude xxx</p>
+<p>setprop persist.nox.gps.longitude xxx</p>
+<p>15、修改mac地址</p>
+<p>setprop persist.nox.wifimac xxx            修改mac地址</p>
+<p>setprop persist.nox.modem.phonumber 138111111111     手机号，生成一个随机11位数字</p>
+<p>setprop persist.nox.model ABC001            手机型号，英文加数字随机</p>
+<p>setprop persist.nox.manufacturer XiaoMi        手机制造商英文随机</p>
+<p>setprop persist.nox.brand Mi             手机品牌英文随机</p>
+<p>16、adb logcat</p>
+<p>打印log信息</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb logcat</td>
+<td>打印log</td>
+<td>/</td>
+</tr>
+<tr>
+<td>adb logcat -c</td>
+<td>清除手机的log buffer</td>
+<td>有些手机权限控制, 不支持.</td>
+</tr>
+<tr>
+<td>adb logcat -b &lt;buffer&gt;</td>
+<td>打印指定buffer的log信息</td>
+<td>buffer有: main(主log区,默认), events(事件相关的log), radio(射频, telephony相关的log)</td>
+</tr>
+<tr>
+<td>adb logcat -v &lt;format&gt;</td>
+<td>格式化输出log</td>
+<td>常用的用adb logcat -v time显示时间</td>
+</tr>
+<tr>
+<td>adb logcat -f &lt;filename&gt;</td>
+<td>输出log到指定文件</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>17、adb start/kill-server</p>
+<p>启动/杀死adb简介中提到的Server端进程。</p>
+<p>由于adb并不稳定, 有时候莫名的问题掉线时, 可以先kill-server, 然后start-server来确保Server进程启动。往往可以解决问题。</p>
+<p>18、adb shell am</p>
+<p>am即activity manager.<br>该命令用来执行一些系统动作, 例如启动指定activity, 结束进程, 发送广播, 更改屏幕属性等. 调试利器.</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start &lt;Intent&gt;</td>
+<td>根据intent指向启动Activity</td>
+<td>Intent可以是显示的指向activity, 也可以是ACTION方式, 并且可以添加flag, data等参数信息.</td>
+</tr>
+<tr>
+<td>startservice &lt;Intent&gt;</td>
+<td>启动Service</td>
+<td>可以添加flag, data等参数信息.</td>
+</tr>
+<tr>
+<td>broadcast &lt;Intent&gt;</td>
+<td>发送广播</td>
+<td>可以添加flag, data等参数信息.</td>
+</tr>
+<tr>
+<td>monitor</td>
+<td>启动一个Crash和ANR的监听器</td>
+<td>如有Crash或ANR会在控制台输出相关信息.</td>
+</tr>
+<tr>
+<td>force-stop &lt;Package&gt;</td>
+<td>强制停止该包相关的一切</td>
+<td>传入package name.</td>
+</tr>
+<tr>
+<td>kill &lt;Package&gt;</td>
+<td>杀死该包相关的所有进程</td>
+<td>传入package name.</td>
+</tr>
+<tr>
+<td>kill-all</td>
+<td>杀死所有后台进程</td>
+<td></td>
+</tr>
+<tr>
+<td>display-size WxH</td>
+<td>改变显示的分辨率</td>
+<td>例如adb shell am display-size 1280x720, 手机可能不支持.</td>
+</tr>
+<tr>
+<td>display-density &lt;dpi&gt;</td>
+<td>改变显示的density</td>
+<td>例如adb shell am display-density 320, 手机可能不支持.</td>
+</tr>
+</tbody></table>
+<p>19、adb shell dumpsys</p>
+<p>强大的dump工具, 可以输出很多系统信息. 例如window, activity, task/back stack信息, wifi信息等.</p>
+<p>常用dumpsys:</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+<th>备注</th>
+<th>细分参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>activity</td>
+<td>输出app组件相关信息</td>
+<td>还可以用细分参数获得单项内容, 下同. 例如adb shell dumpsys activity activities来获取activity task/back stack信息.</td>
+<td>activites, service, providers, intents, broadcasts, processes</td>
+</tr>
+<tr>
+<td>alarm</td>
+<td>输出当前系统的alarm信息</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td>cpuinfo</td>
+<td>输出当前的CPU使用情况</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td>diskstats</td>
+<td>输出当前的磁盘使用状态</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td>batterystats</td>
+<td>电池使用信息</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td>package</td>
+<td>package相关信息, 相当于pm功能的集合</td>
+<td>输出诸如libs, features, packages等信息</td>
+<td>/</td>
+</tr>
+<tr>
+<td>meminfo</td>
+<td>输出每个App的内存使用和系统内存状态</td>
+<td>可以指定包名, 例如adb shell dumpsys meminfo com.anly.githubapp</td>
+<td>/</td>
+</tr>
+<tr>
+<td>window</td>
+<td>输出当前窗口相关信息</td>
+<td>/</td>
+<td>policy, animator, tokens, windows</td>
+</tr>
+</tbody></table>
+<p>20.复制 -copy:<nox_id> _from:<nox_id>例：Nox.exe -copy:Nox_1 -from:nox<br>Nox_1是新增的模拟器，复制自nox</p>
+<p>21.删除 -remove:<nox_id><br>例：Nox.exe -remove:Nox_2<br>删除模拟器Nox_2</p>
+<p>22.备份 -backup:<nox_id> -file:filepath<br>例：Nox.exe -backup:Nox_1 -file:C:UsersxxxxDesktop<br>备份Nox_1到桌面</p>
+<p>23.还原 -restore:<nox_id> -file:filepath<br>例：Nox.exe -restore:Nox_1 -file:C:xxxxlihcDesktopbackup20171030174008.vmdk<br>[C:UsersxxxxDesktopbackup20171030174008.vmdk]文件还原到Nox_1</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/01/adb%E5%91%BD%E4%BB%A4/" data-id="ckt188ghs00006wty6vp7acqo" data-title="adb命令" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-移动端测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/09/01/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/" class="article-date">
@@ -1469,58 +1744,12 @@
 
 
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/08/30/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-08-30T05:08:32.576Z" itemprop="datePublished">2021-08-30</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/08/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/30/hello-world/" data-id="cksy6q5930000y0tybks50hv4" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -1551,6 +1780,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/01/adb%E5%91%BD%E4%BB%A4/">adb命令</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/01/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/">移动端测试概述</a>
           </li>
         
@@ -1564,10 +1797,6 @@
         
           <li>
             <a href="/2021/08/31/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/">软件测试流程</a>
-          </li>
-        
-          <li>
-            <a href="/2021/08/31/ftp%E5%B7%A5%E5%85%B7%E7%9A%84%E6%90%AD%E5%BB%BA/">ftp工具的搭建</a>
           </li>
         
       </ul>
