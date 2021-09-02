@@ -71,6 +71,217 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-web前端基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/02/web%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time class="dt-published" datetime="2021-09-02T09:54:41.000Z" itemprop="datePublished">2021-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/02/web%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/">web前端基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-web运行的流程"><a href="#1-web运行的流程" class="headerlink" title="1.web运行的流程"></a>1.web运行的流程</h1><p><img src="https://pic.imgdb.cn/item/61309fbb44eaada739f724ed.jpg"></p>
+<h1 id="2-HTML的基本标签"><a href="#2-HTML的基本标签" class="headerlink" title="2. HTML的基本标签"></a>2. <strong>HTML的基本标签</strong></h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&lt;/p&gt;:定义段落</span><br><span class="line">&lt;h1&gt;&lt;/h1&gt;~~&lt;h6&gt;&lt;/h6&gt;：这是定义标题</span><br><span class="line">&lt;br/&gt;：换行标签</span><br><span class="line">&lt;strong&gt;&lt;/strong&gt;:字体加粗</span><br><span class="line">&lt;hr/&gt;:定义水平线</span><br></pre></td></tr></table></figure>
+
+<p>上述都是简单在网页上面 修饰文字的标签，下面演示图与超链接！</p>
+<p>插入图片的时候思考：</p>
+<p>图片的位置</p>
+<p>图片没有加载出来时候，替代文本是什么？</p>
+<p>图片的宽、高</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;1.jpg&quot;  alt=&quot;像个男人吧&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Src:  图片的地址  </p>
+<p>Alt:  图片加载不出来替代文本</p>
+<p>Img叫标签、src与alt叫属性，双引号里面的叫属性值</p>
+<p>一个标准的html标签的写法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;标签  属性名1=“属性值1” 属性名2=“属性值2” &gt; 内容 &lt;/标签&gt;</span><br><span class="line">&lt;p align=&quot;center&quot;&gt;自7月18日，都美竹以一句?&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>注意：标签里面套标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>自<span class="tag">&lt;<span class="name">strong</span>&gt;</span>7月18日<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>，都美竹以</span><br><span class="line">一句“站出来吧”<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>超链接：点击文字能够跳转其他网页</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>空链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;Demo4.html&quot;</span>&gt;</span>链接到本地目录文件<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com/&quot;</span>&gt;</span>百度一些<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-html的列表、表格与表单"><a href="#3-html的列表、表格与表单" class="headerlink" title="3.html的列表、表格与表单"></a>3.html的列表、表格与表单</h1><p><strong>列表：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--列表 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ul</span> &gt;</span><span class="comment">&lt;!--声明一个无序列表--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>手机<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>电脑<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>箱包<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">ol</span>&gt;</span><span class="comment">&lt;!--声明一个有序列表--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>手机<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>电脑<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>箱包<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">dl</span>&gt;</span><span class="comment">&lt;!--定义列表--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">dt</span>&gt;</span>长江<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">dd</span>&gt;</span>是中国第1长河....<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="tag">&lt;<span class="name">dt</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">dd</span>&gt;</span>是中国第一大城市<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>表格：table  tr  td</strong></p>
+<p>表格规律：  声明表格用table,记住border属性设置边框线条，有多少对tr标签决定了表格的行数，tr标签里面有多少对td标签，就决定了表格的列数。</p>
+<p>表格的跨行： </p>
+<p><code>&lt;td rowspan=&quot;2&quot;&gt;11&lt;/td&gt;</code></p>
+<p><code>&lt;td colspan=&quot;2&quot;&gt;11&lt;/td&gt;</code></p>
+<p><strong>表单：</strong></p>
+<p>表单搜集用户的数据，向服务器传输。</p>
+<p>登录、注册</p>
+<p>定义一个表单：</p>
+<p>&lt;form&gt; 标签用于为用户输入创建 HTML 表单。</p>
+<p>表单能够包含 <strong>input</strong> 元素，比如文本字段、复选框、单选框、提交按钮等等。</p>
+<p>表单还可以包含 <strong>menus</strong>、<strong>textarea</strong>、<strong>fieldset</strong>、<strong>legend</strong> 和 <strong>label</strong> 元素。</p>
+<p>&lt;input&gt; 标签用于搜集用户信息。</p>
+<p>type 属性规定 input 元素的类型。</p>
+<table>
+<thead>
+<tr>
+<th>button</th>
+<th>定义可点击按钮（多数情况下，用于通过 JavaScript 启动脚本）。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>checkbox</td>
+<td>定义复选框。</td>
+</tr>
+<tr>
+<td>file</td>
+<td>定义输入字段和 “浏览”按钮，供文件上传。</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>定义隐藏的输入字段。</td>
+</tr>
+<tr>
+<td>image</td>
+<td>定义图像形式的提交按钮。</td>
+</tr>
+<tr>
+<td>password</td>
+<td>定义密码字段。该字段中的字符被掩码。</td>
+</tr>
+<tr>
+<td>radio</td>
+<td>定义单选按钮。</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>定义重置按钮。重置按钮会清除表单中的所有数据。</td>
+</tr>
+<tr>
+<td>submit</td>
+<td>定义提交按钮。提交按钮会把表单数据发送到服务器。</td>
+</tr>
+<tr>
+<td>text</td>
+<td>定义单行的输入字段，用户可在其中输入文本。默认宽度为 20 个字符。</td>
+</tr>
+</tbody></table>
+<p>单选框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;#&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>  <span class="attr">value</span>=<span class="string">&quot;男&quot;</span> /&gt;</span>男</span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>  <span class="attr">value</span>=<span class="string">&quot;女&quot;</span> /&gt;</span>女</span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>复选框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;#&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> /&gt;</span>足球</span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> /&gt;</span>足球</span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> /&gt;</span>足球</span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>下拉列表</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span><span class="comment">&lt;!--定义下拉列表--&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--定义下拉列表项--&gt;</span></span><br><span class="line">			  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span> =<span class="string">&quot;volvo&quot;</span>&gt;</span>Volvo<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">			  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span> =<span class="string">&quot;saab&quot;</span>&gt;</span>Saab<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">			  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;opel&quot;</span>&gt;</span>Opel<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">			  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;audi&quot;</span>&gt;</span>Audi<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4-HTML的框架"><a href="#4-HTML的框架" class="headerlink" title="4. HTML的框架"></a>4. <strong>HTML的框架</strong></h1><p>通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。每份HTML文档称为一个框架，并且每个框架都独立于其他的框架。</p>
+<p>&lt;frameset&gt;&lt;/frameset &gt;:定义如何将窗口分割为框架 </p>
+<p> &lt;frame&gt; 标签定义 frameset 中的一个特定的窗口（框架）。</p>
+<p> Frameset标签用的时候把body删除掉</p>
+<p>垂直切割三列：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">frameset</span> <span class="attr">cols</span>=<span class="string">&quot;25%,50%,*&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;Demo1.html&quot;</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;Demo3.html&quot;</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;Demo3.html&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">frameset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>水平分三列：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">frameset</span> <span class="attr">rows</span>=<span class="string">&quot;25%,50%,25%&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;../example/html/frame_a.html&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;../example/html/frame_b.html&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;../example/html/frame_c.html&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">frameset</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>综合切割：上下左右:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>框架<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">frameset</span> <span class="attr">rows</span>=<span class="string">&quot;20%,*&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;Demo1.html&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">frameset</span> <span class="attr">cols</span>=<span class="string">&quot;30%,*&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;demo12.html&quot;</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;Demo13.html&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">frameset</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">frameset</span>&gt;</span>		</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="5-CSS的组成"><a href="#5-CSS的组成" class="headerlink" title="5. CSS的组成"></a>5. <strong>CSS的组成</strong></h1><p>CSS的语法的写法：</p>
+<p><img src="https://pic.imgdb.cn/item/6130a3af44eaada739fd6e75.jpg"></p>
+<h1 id="6-CSS的写法"><a href="#6-CSS的写法" class="headerlink" title="6.CSS的写法"></a>6.CSS的写法</h1><p>1.行内样式：CSS代码写在要设置的那个html标签里面</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">p</span> style=&quot;<span class="attribute">color</span>: red;&quot;&gt;这是段落标签&lt;/<span class="selector-tag">p</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.内嵌样式：在html代码中写一对style标签</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;  		<span class="selector-tag">p</span>&#123;	<span class="attribute">color</span>: red;	<span class="attribute">font-size</span>: <span class="number">30px</span>;&#125;	&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3.外部文件样式：  </p>
+<p>​    先写一个CSS文件</p>
+<p>​    再通过link标签链接进入html中</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../css/style1<span class="selector-class">.css</span>&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>一个标签被三种写法同时设置，它应遵循就近原则</p>
+<h1 id="7-CSS的选择器"><a href="#7-CSS的选择器" class="headerlink" title="7.CSS的选择器"></a>7.CSS的选择器</h1><p>1.标签选择器： 把标签名字作为选择器名</p>
+<p>2.类选择器： 不强调唯一性</p>
+<p>​    (1) 自己给标签设置一个类名</p>
+<p>​    (2) 选择器格式为：  .类名{…….}</p>
+<p>3.Id选择器：</p>
+<p><img src="https://pic.imgdb.cn/item/6130a47f44eaada739fec466.jpg"></p>
+<h1 id="8-CSS的基本样式"><a href="#8-CSS的基本样式" class="headerlink" title="8. CSS的基本样式"></a>8. <strong>CSS的基本样式</strong></h1><h4 id="①-背景："><a href="#①-背景：" class="headerlink" title="①　背景："></a>①　<strong>背景：</strong></h4><p>背景颜色、背景图片</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*设置背景颜色*/</span>				<span class="comment">/*background-color: black;*/</span></span><br><span class="line"><span class="comment">/*设置背景图片*/</span>				<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">../img/1.jpeg</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="②-字体"><a href="#②-字体" class="headerlink" title="②　字体"></a>②　<strong>字体</strong></h4><p>font-size: 36px; 大小</p>
+<p>font-style: italic; 倾斜</p>
+<h4 id="③-链接"><a href="#③-链接" class="headerlink" title="③　链接"></a>③　<strong>链接</strong></h4><p>· a:link - 普通的、未被访问的链接 </p>
+<p>· a:visited - 用户已访问的链接 </p>
+<p>· a:hover - 鼠标指针位于链接的上方 </p>
+<p>· a:active - 链接被点击的时刻 </p>
+<p>text-decoration: none; 去掉下划线</p>
+<h4 id="④-文本"><a href="#④-文本" class="headerlink" title="④　文本"></a>④　<strong>文本</strong></h4><p>Text-align:设置文本对齐的方式</p>
+<p>text-decoration 有 5 个值：</p>
+<p>· none </p>
+<p>· underline </p>
+<p>· overline </p>
+<p>· line-through </p>
+<p>· blink </p>
+<h4 id="⑤-列表：去掉项目符号"><a href="#⑤-列表：去掉项目符号" class="headerlink" title="⑤　列表：去掉项目符号"></a>⑤　<strong>列表：去掉项目符号</strong></h4><p>ul{</p>
+<p>​                list-style-type: none;</p>
+<p>​            }</p>
+<h4 id="⑥-表格：宽、高、背景颜色、图片、线条"><a href="#⑥-表格：宽、高、背景颜色、图片、线条" class="headerlink" title="⑥　表格：宽、高、背景颜色、图片、线条"></a>⑥　<strong>表格：宽、高、背景颜色、图片、线条</strong></h4><h1 id="9-CSS的盒子模型"><a href="#9-CSS的盒子模型" class="headerlink" title="9.CSS的盒子模型"></a>9.CSS的盒子模型</h1><p>学习盒子模型：可以了解网页各个元素的宽和高！！！</p>
+<p>学习一个标签：块  div</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">				width: 200px;</span><br><span class="line">				height: 200px;</span><br><span class="line">				border: 1px red solid;</span><br><span class="line">			&#125;</span><br><span class="line">div&#123;</span><br><span class="line">				width: 200px;</span><br><span class="line">				height: 200px;</span><br><span class="line">				padding-bottom: 10px;</span><br><span class="line">				/*</span><br><span class="line">				 top  bottom  left  right</span><br><span class="line">				 * */</span><br><span class="line">				margin: 10px;</span><br><span class="line">				border: 1px red solid;</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="10-CSS的浮动"><a href="#10-CSS的浮动" class="headerlink" title="10. CSS的浮动:"></a>10. <strong>CSS的浮动:</strong></h1><p><img src="https://pic.imgdb.cn/item/6130a59344eaada73900739a.jpg"></p>
+<h1 id="11-CSS的定位"><a href="#11-CSS的定位" class="headerlink" title="11. CSS的定位:"></a>11. <strong>CSS的定位:</strong></h1><p>它允许你定义元素框相对于其正常位置应该出现的位置，或者相对于父元素、另一个元素甚至浏览器窗口本身的位置</p>
+<p><strong>relative【相对定位】</strong></p>
+<p>元素框偏移某个距离。元素仍保持其未定位前的形状，它原本所占的空间仍保留。 参照：自身位置 </p>
+<p><strong>absolute【决对定位】</strong></p>
+<p>元素框从文档流完全删除，并相对于其包含块【父级】定位。包含块可能是文档中的另一个元素或者是初始包含块。元素原先在正常文档流中所占的空间会关闭，就好像元素原来不存在一样。元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。 </p>
+<p><strong>fixed【固定定位】</strong></p>
+<p>元素框的表现类似于将 position 设置为 absolute，不过其包含块是视窗本身。 </p>
+<p>用到堆叠： z-index</p>
+<p>当多个块使用绝对定位到一起的时候，使用z_index可以调整其上下顺序，它的值可以是正数、0、负数，值越大，越往上。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/02/web%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" data-id="ckt2s5g1900009ctydjbige6n" data-title="web前端基础" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-http协议" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/09/02/http%E5%8D%8F%E8%AE%AE/" class="article-date">
@@ -1614,93 +1825,6 @@
 
 
   
-    <article id="post-appium环境搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="article-date">
-  <time class="dt-published" datetime="2021-08-31T08:27:28.000Z" itemprop="datePublished">2021-08-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">appium环境搭建</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="环境依赖"><a href="#环境依赖" class="headerlink" title="环境依赖"></a>环境依赖</h1><ul>
-<li>Node.js</li>
-<li>Appium</li>
-<li>Appium-desktop</li>
-<li>Appium-doctor</li>
-<li>Appium-Python-Client</li>
-<li>Python</li>
-<li>JDK</li>
-<li>Andriod SDK</li>
-</ul>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="1-安装node-js"><a href="#1-安装node-js" class="headerlink" title="1.安装node.js"></a>1.安装node.js</h1><p>下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/releases/">https://nodejs.org/en/download/releases/</a></p>
-<p>输入如下命令：</p>
-<p><code>C:\Users\admin&gt;node -v</code></p>
-<p>14.17.5</p>
-<p><code>C:\Users\admin&gt;npm -v</code></p>
-<p>6.14.14</p>
-<ul>
-<li>npm（node package manage）是node.js安装包管理工具，类似Python中的pip工具。</li>
-<li>如果显示‘npm’不是内部命令提示，则可以管理员省份运行cmd，如果还是失败，则需要检查一下环境变量是否配置，或者重新安装nodejs。</li>
-</ul>
-<h1 id="2-安装appium"><a href="#2-安装appium" class="headerlink" title="2.安装appium"></a>2.安装appium</h1><p><code>npm install -g appium</code></p>
-<h4 id="appium配置"><a href="#appium配置" class="headerlink" title="appium配置"></a>appium配置</h4><p>安装完成之后可以使用如下命令查看appium的安装路径</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\admin&gt;where appium</span><br><span class="line"></span><br><span class="line">C:\Users\admin\AppData\Roaming\npm\appium</span><br><span class="line"></span><br><span class="line">C:\Users\admin\AppData\Roaming\npm\appium.cmd</span><br></pre></td></tr></table></figure>
-
-
-
-<p>在控制台输入命令 appium即可启动appium服务，appium -v查看版本</p>
-<p><code>C:\Users\admin&gt;appium -v</code></p>
-<h1 id="3-安装appium-desktop"><a href="#3-安装appium-desktop" class="headerlink" title="3.安装appium-desktop"></a>3.安装appium-desktop</h1><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/appium/appium-desktop/releases">https://github.com/appium/appium-desktop/releases</a></p>
-<h1 id="4-python环境安装配置"><a href="#4-python环境安装配置" class="headerlink" title="4.python环境安装配置"></a>4.python环境安装配置</h1><p>安装成功之后输入命令 python –version看到如下提示即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\C\:\\Users\\\admin\&gt;\python\ \--version\</span><br><span class="line"></span><br><span class="line">\Python\ 3.6.6</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="5-jdk环境配置"><a href="#5-jdk环境配置" class="headerlink" title="5.jdk环境配置"></a>5.jdk环境配置</h1><p>安装完成后配置环境变量JAVA_HOME,在PATH中添加java和javac的地址</p>
-<p>查看版本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\adm&gt;java -version</span><br><span class="line">java version &quot;1.8.0_66&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_66-b18)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.66-b18, mixed mode)</span><br><span class="line"></span><br><span class="line">C:\Users\adm&gt;javac -version</span><br><span class="line">javac 1.8.0_66</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="6-ANDROID-SDK安装"><a href="#6-ANDROID-SDK安装" class="headerlink" title="6.ANDROID SDK安装"></a>6.ANDROID SDK安装</h1><p>下载地址： <a target="_blank" rel="noopener" href="http://tools.android-studio.org/index.php/sdk">http://tools.android-studio.org/index.php/sdk</a></p>
-<p>安装完成后需要配置环境变量：ANDROID_HOME</p>
-<h1 id="7-安装appium-doctor"><a href="#7-安装appium-doctor" class="headerlink" title="7.安装appium-doctor"></a>7.安装appium-doctor</h1><p>appium-doctor可以检测Appium整体依赖环境配置情况。</p>
-<p><code>C:\Users\\admin\\&gt;npm install\ appium-doctor -g</code></p>
-<p>在cmd输入命令</p>
-<p><code>appium-doctor</code></p>
-<p>必要项全绿说明安装成功</p>
-<p>参考资料</p>
-<p><a target="_blank" rel="noopener" href="https://testerhome.com/topics/13146">https://testerhome.com/topics/13146</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="ckszugd1k00002otybwjgf1c4" data-title="appium环境搭建" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1737,6 +1861,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/02/web%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/">web前端基础</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/02/http%E5%8D%8F%E8%AE%AE/">http协议</a>
           </li>
         
@@ -1750,10 +1878,6 @@
         
           <li>
             <a href="/2021/09/01/adb%E5%91%BD%E4%BB%A4/">adb命令</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/01/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/">移动端测试概述</a>
           </li>
         
       </ul>

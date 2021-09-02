@@ -71,6 +71,93 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-appium环境搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time class="dt-published" datetime="2021-08-31T08:27:28.000Z" itemprop="datePublished">2021-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">appium环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="环境依赖"><a href="#环境依赖" class="headerlink" title="环境依赖"></a>环境依赖</h1><ul>
+<li>Node.js</li>
+<li>Appium</li>
+<li>Appium-desktop</li>
+<li>Appium-doctor</li>
+<li>Appium-Python-Client</li>
+<li>Python</li>
+<li>JDK</li>
+<li>Andriod SDK</li>
+</ul>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="1-安装node-js"><a href="#1-安装node-js" class="headerlink" title="1.安装node.js"></a>1.安装node.js</h1><p>下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/releases/">https://nodejs.org/en/download/releases/</a></p>
+<p>输入如下命令：</p>
+<p><code>C:\Users\admin&gt;node -v</code></p>
+<p>14.17.5</p>
+<p><code>C:\Users\admin&gt;npm -v</code></p>
+<p>6.14.14</p>
+<ul>
+<li>npm（node package manage）是node.js安装包管理工具，类似Python中的pip工具。</li>
+<li>如果显示‘npm’不是内部命令提示，则可以管理员省份运行cmd，如果还是失败，则需要检查一下环境变量是否配置，或者重新安装nodejs。</li>
+</ul>
+<h1 id="2-安装appium"><a href="#2-安装appium" class="headerlink" title="2.安装appium"></a>2.安装appium</h1><p><code>npm install -g appium</code></p>
+<h4 id="appium配置"><a href="#appium配置" class="headerlink" title="appium配置"></a>appium配置</h4><p>安装完成之后可以使用如下命令查看appium的安装路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\admin&gt;where appium</span><br><span class="line"></span><br><span class="line">C:\Users\admin\AppData\Roaming\npm\appium</span><br><span class="line"></span><br><span class="line">C:\Users\admin\AppData\Roaming\npm\appium.cmd</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在控制台输入命令 appium即可启动appium服务，appium -v查看版本</p>
+<p><code>C:\Users\admin&gt;appium -v</code></p>
+<h1 id="3-安装appium-desktop"><a href="#3-安装appium-desktop" class="headerlink" title="3.安装appium-desktop"></a>3.安装appium-desktop</h1><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/appium/appium-desktop/releases">https://github.com/appium/appium-desktop/releases</a></p>
+<h1 id="4-python环境安装配置"><a href="#4-python环境安装配置" class="headerlink" title="4.python环境安装配置"></a>4.python环境安装配置</h1><p>安装成功之后输入命令 python –version看到如下提示即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\C\:\\Users\\\admin\&gt;\python\ \--version\</span><br><span class="line"></span><br><span class="line">\Python\ 3.6.6</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="5-jdk环境配置"><a href="#5-jdk环境配置" class="headerlink" title="5.jdk环境配置"></a>5.jdk环境配置</h1><p>安装完成后配置环境变量JAVA_HOME,在PATH中添加java和javac的地址</p>
+<p>查看版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\adm&gt;java -version</span><br><span class="line">java version &quot;1.8.0_66&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_66-b18)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.66-b18, mixed mode)</span><br><span class="line"></span><br><span class="line">C:\Users\adm&gt;javac -version</span><br><span class="line">javac 1.8.0_66</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="6-ANDROID-SDK安装"><a href="#6-ANDROID-SDK安装" class="headerlink" title="6.ANDROID SDK安装"></a>6.ANDROID SDK安装</h1><p>下载地址： <a target="_blank" rel="noopener" href="http://tools.android-studio.org/index.php/sdk">http://tools.android-studio.org/index.php/sdk</a></p>
+<p>安装完成后需要配置环境变量：ANDROID_HOME</p>
+<h1 id="7-安装appium-doctor"><a href="#7-安装appium-doctor" class="headerlink" title="7.安装appium-doctor"></a>7.安装appium-doctor</h1><p>appium-doctor可以检测Appium整体依赖环境配置情况。</p>
+<p><code>C:\Users\\admin\\&gt;npm install\ appium-doctor -g</code></p>
+<p>在cmd输入命令</p>
+<p><code>appium-doctor</code></p>
+<p>必要项全绿说明安装成功</p>
+<p>参考资料</p>
+<p><a target="_blank" rel="noopener" href="https://testerhome.com/topics/13146">https://testerhome.com/topics/13146</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/31/appium%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="ckszugd1k00002otybwjgf1c4" data-title="appium环境搭建" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-测试理论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/08/30/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/" class="article-date">
@@ -852,6 +939,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/02/web%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/">web前端基础</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/02/http%E5%8D%8F%E8%AE%AE/">http协议</a>
           </li>
         
@@ -865,10 +956,6 @@
         
           <li>
             <a href="/2021/09/01/adb%E5%91%BD%E4%BB%A4/">adb命令</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/01/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/">移动端测试概述</a>
           </li>
         
       </ul>
