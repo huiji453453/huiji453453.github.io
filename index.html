@@ -2861,7 +2861,140 @@
 <p><img src="file:///C:\Users\adm\AppData\Local\Temp\ksohtml4312\wps4.jpg" alt="img"> </p>
 <p>· Android Support Repository（可选）：主要是方便在gradle中使用Android Support Libraries，因为Google并没有把这些库发布到maven center或者jcenter去，而是使用了Google自己的maven仓库。</p>
 <p>· Intel x86 Emulator Accelerator(HAXM installer)（可选）：windows平台的Intel x86模拟器加速工具，配合Intel x86 atom/atom_64 System Image使用可加快模拟器的运行速度。</p>
-<h1 id="环境变量设置"><a href="#环境变量设置" class="headerlink" title="环境变量设置"></a><strong>环境变量设置</strong></h1><p>· 系统变量里面添加变量名 ANDROID_HOME 路径为实际存放SDk的路径</p>
+<h2 id="环境变量设置"><a href="#环境变量设置" class="headerlink" title="环境变量设置"></a><strong>环境变量设置</strong></h2><p>· 系统变量里面添加变量名 ANDROID_HOME 路径为实际存放SDk的路径</p>
+<h1 id="6。monkey"><a href="#6。monkey" class="headerlink" title="6。monkey"></a><strong>6。monkey</strong></h1><h2 id="一、Monkey简介"><a href="#一、Monkey简介" class="headerlink" title="一、Monkey简介"></a>一、<strong>Monkey简介</strong></h2><p>在Android的官方自动化测试领域有一只非常著名的“猴子”叫Monkey，这只“猴子”一旦启动，就会让被测的Android应用程序像猴子一样活蹦乱跳，到处乱跑。人们常用这只“猴子”来对被测程序进行压力测试，检查和评估被测程序的稳定性。</p>
+<p>Android官方对这只“猴子”的描述是这样的：</p>
+<p>The Monkey is a program that runs on your emulator or device and generates pseudo-random streams of user events such as clicks, touches, or gestures, as well as a number of system-level events. You can use the Monkey to stress-test applications that you are developing, in a random yet repeatable manner.</p>
+<p>Monkey是一个程序，运行在您的模拟器或设备上，并生成伪随机的用户事件流，如点击，触摸或手势，以及一些系统级事件。 您可以使用Monkey以随机但可重复的方式对您正在开发的应用程序进行压力测试。</p>
+<p>monkey官方文档：<a target="_blank" rel="noopener" href="http://www.android-doc.com/tools/help/monkey.html">http://www.android-doc.com/tools/help/monkey.html</a></p>
+<h2 id="二、Moneky-路径"><a href="#二、Moneky-路径" class="headerlink" title="二、Moneky 路径"></a>二、<strong>Moneky 路径</strong></h2><p>Monkey程序是Android系统自带的，其启动脚本是位于Android系统的/system/bin目录的Monkey文件，其jar包是位于Android系统的/system/framework目录的Monkey.jar文件。用户主要是通过adb命令来启动Monkey的，Monkey在运行时，会根据命令行参数的配置，生成伪随机的事件流，并在Android设备上执行对应的测试事件。同时，Monkey还会对测试系统进行监测，当出现以下三种情况时会进行特殊处理：</p>
+<p>· 如限定了Monkey运行在特定包上，当监测到试图转到其他包的操作，将对其进行阻止。</p>
+<p>· 如应用程序崩溃或接收到任何失控异常，Monkey将记录对应的错误日志，并根据命令行参数判断是停止运行还是继续运行。</p>
+<p>· 如果应用程序发生了程序无响应（application not responding）的错误，Monkey将记录对应的错误日志，并根据命令行参数判断是停止运行还是继续运行。</p>
+<p>· 按照选定的不同级别的反馈信息，在Monkey中还可以看到其执行过程报告和生成的事件。</p>
+<h2 id="三、Monkey启动步骤"><a href="#三、Monkey启动步骤" class="headerlink" title="三、Monkey启动步骤"></a>三、<strong>Monkey启动步骤</strong></h2><ol>
+<li><p>连接模拟器</p>
+</li>
+<li><p>连接成功后输入命令</p>
+</li>
+</ol>
+<p><code>adb shell</code></p>
+<h2 id="四、进入到指定目录"><a href="#四、进入到指定目录" class="headerlink" title="四、进入到指定目录"></a>四、<strong>进入到指定目录</strong></h2><p><code>cd /system/bin</code></p>
+<ol start="3">
+<li>输入 monkey命令看到提示则说明启动成功。</li>
+</ol>
+<h2 id="五、强制关闭monkey"><a href="#五、强制关闭monkey" class="headerlink" title="五、强制关闭monkey"></a>五、<strong>强制关闭monkey</strong></h2><ol>
+<li><p>adb shell ps 查看全部在运行的进程</p>
+</li>
+<li><p>查找出com.android.commands.monkey 进程PID</p>
+</li>
+<li><p>adb shell kill pid 杀掉monkey进程</p>
+</li>
+</ol>
+<h2 id="六、monkey-命令"><a href="#六、monkey-命令" class="headerlink" title="六、monkey 命令"></a>六、<strong>monkey 命令</strong></h2><p>monkey命令格式如下：</p>
+<p><code>$ adb shell monkey [options] &lt;event-count&gt;</code></p>
+<p><strong>·</strong> <strong>[options]</strong> 是指monkey可传入的参数，是<strong>可选项</strong>（如果不指定options，Monkey将以无反馈模式启动，并把事件任意发送到安装在目标环境中的全部包）</p>
+<p>·<strong>&lt;event-count&gt;</strong> 是指随机发送事件数。如：输入100就是执行100个伪随机事件，为<strong>必选项</strong>。</p>
+<h2 id="七、操作事件简介"><a href="#七、操作事件简介" class="headerlink" title="七、操作事件简介"></a>七、<strong>操作事件简介</strong></h2><p>Monkey所执行的随机事件流中包含11大事件，分别是触摸事件、手势事件、二指缩放事件、轨迹事件、屏幕旋转事件、基本导航事件、主要导航事件、系统按键事件、启动Activity事件、键盘事件、其他类型事件。Monkey通过这11大事件来模拟用户的常规操作，对手机App进行稳定性测试。下面让我们来详细了解这11大事件。</p>
+<h3 id="1-触摸事件"><a href="#1-触摸事件" class="headerlink" title="1.触摸事件"></a><strong>1.触摸事件</strong></h3><p>触摸事件是指在屏幕某处按下并抬起的操作，可通过***–pct-touch***参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到。 该事件由一组Touch（ACTION_DOWN）和Touch（ACTION_UP）事件组成，在手机上看到实际操作类似于点击。</p>
+<h3 id="2-手势事件"><a href="#2-手势事件" class="headerlink" title="2.手势事件"></a><strong>2.手势事件</strong></h3><p>手势事件是指在屏幕某处的按下、随机移动、抬起的操作，即直线滑动操作。可通过***–pct-motion***参数来配置其事件百分比。</p>
+<p>该事件是由一个ACTION_DOWN事件、一系列ACTION_MOVE事件和一个ACTION_UP事件组成的，在手机上看到的实际操作是一个没有拐弯的直线滑动操作。</p>
+<h3 id="3-二指缩放事件"><a href="#3-二指缩放事件" class="headerlink" title="3.二指缩放事件"></a><strong>3.二指缩放事件</strong></h3><p>二指缩放事件是指在屏幕上的两处同时按下，并同时移动，最后同时抬起的操作，即智能机上的放大缩小手势操作。可通过–pct-pinchzoom参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到：</p>
+<p>该事件起始是一个ACTION_DOWN事件和一个ACTION_POINTER_DOWN事件，即模拟两个手指同时点下；中间是一系列的ACTION_MOVE事件，即两个手指同时在屏幕上直线滑动；结束是由一个ACTION_POINTER_UP事件和一个ACTION_UP事件组成的，即两个手指同时放开。</p>
+<h3 id="4-轨迹事件"><a href="#4-轨迹事件" class="headerlink" title="4.轨迹事件"></a><strong>4.轨迹事件</strong></h3><p>轨迹事件是由一个或多个随机的移动组成的，有时会伴随着点击。很早之前的Android手机带有轨迹球，这个事件就是模拟的轨迹球的操作。现在的手机几乎都没有轨迹球，但轨迹球事件中包含曲线滑动操作，如果被测程序需要曲线滑动时可以选用此参数。可通过–pct-trackball参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到：</p>
+<p>该事件是由一系列的Trackball（ACTION_MOVE）事件组成的，观察手机上的操作，即为一系列的曲线滑动操作。</p>
+<h3 id="5-屏幕旋转事件"><a href="#5-屏幕旋转事件" class="headerlink" title="5.屏幕旋转事件"></a><strong>5.屏幕旋转事件</strong></h3><p>屏幕旋转事件是一个隐藏事件，在Android官方文档中并没有记录这个事件。它其实是模拟的Android手机的横屏和竖屏切换。可通过–pct-rotation参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件由一个rotation事件组成，其中degree表示的是旋转方向，顺时针旋转，0表示旋转90度的方向，1表示旋转180度的方向，2表示旋转270度的方向，3表示旋转360度的方向。在执行过程中，可以看到手机屏幕在横竖屏之间不断地切换。</p>
+<h3 id="6-基本导航事件"><a href="#6-基本导航事件" class="headerlink" title="6.基本导航事件"></a><strong>6.基本导航事件</strong></h3><p>基本导航事件是指点击方向输入设备的上、下、左、右按键的操作，现在手机上很少有上、下、左、右按键，这种事件一般用得比较少。可通过–pct-nav参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到：</p>
+<p>该事件是由一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的，点击的就是上、下、左、右四个方向按键。</p>
+<h3 id="7-主要导航事件"><a href="#7-主要导航事件" class="headerlink" title="7.主要导航事件"></a><strong>7.主要导航事件</strong></h3><p>主要导航事件是指点击“主要导航”按键的操作，这些按键通常会导致UI界面中的动作，如键盘的中间键、回退按键、菜单按键。可通过–pct-majornav参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件是由一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的，点击的按键就是中间键和菜单键。</p>
+<h3 id="8-系统按键事件"><a href="#8-系统按键事件" class="headerlink" title="8.系统按键事件"></a><strong>8.系统按键事件</strong></h3><p>系统按键事件是指点击系统保留使用的按键的操作，如点击Home键、返回键、音量调节键等。可通过–pct-syskeys参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件是由一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的，点击的就是上面说到的几个系统按键。</p>
+<h3 id="9-启动Activity事件"><a href="#9-启动Activity事件" class="headerlink" title="9.启动Activity事件"></a><strong>9.启动Activity事件</strong></h3><p>启动Activity事件是指在手机上启动一个Activity的操作。在随机的时间间隔中，Monkey将执行一个startActivity（）方法，作为最大限度上覆盖被测包中全部Activity的一种方法。可通过–pct-appswitch参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件是由一个Switch操作组成的，从手机上看，上面的操作实际是打开了com.android.settings这个应用的一个com.android.settings.Settings的Activity界面。</p>
+<h3 id="10-键盘事件"><a href="#10-键盘事件" class="headerlink" title="10.键盘事件"></a><strong>10.键盘事件</strong></h3><p>键盘事件主要是一些与键盘相关的操作。比如点击输入框、键盘弹起、点击输入框以外区域、键盘收回等。可通过–pct-flip参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 如日志所示，这里主要是键盘的打开和关闭操作。</p>
+<h3 id="11-其他类型事件"><a href="#11-其他类型事件" class="headerlink" title="11.其他类型事件"></a><strong>11.其他类型事件</strong></h3><p>其他类型事件包括了除前面提到的10种事件外其他所有的事件，如按键、其他不常用的设备上的按钮等。可通过–pct-anyevent参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件是由一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的，点击的按键就是其他的一些系统按键，如字母按键、数字按键等。因为现在手机很少带字母按键或数字按键，所以这个事件一般使用得比较少。</p>
+<h1 id="八、monkey-参数"><a href="#八、monkey-参数" class="headerlink" title="八、monkey 参数"></a>八、<strong>monkey 参数</strong></h1><h3 id="1-参数分类"><a href="#1-参数分类" class="headerlink" title="1. 参数分类"></a>1. <strong>参数分类</strong></h3><p>· 常规类参数</p>
+<p>· 事件类参数</p>
+<p>· 约束类参数</p>
+<p>· 调试类参数</p>
+<h3 id="2-常规类参数"><a href="#2-常规类参数" class="headerlink" title="2. 常规类参数"></a>2. <strong>常规类参数</strong></h3><p>常规类参数包括帮助参数和日志信息参数。帮助参数用于输出Monkey命令使用指导；日志信息参数将日志分为三个级别，级别越高，日志的信息越详细。</p>
+<p>1.帮助类参数</p>
+<p>monkey -h</p>
+<p>2.日志级别</p>
+<p><code>$ adb shell monkey -v &lt;event-count&gt;</code></p>
+<p>-v：打印出日志信息，每个-v将增加反馈信息的级别。-v越多日志信息越详细，不过目前最多支持3个-v，即：</p>
+<p><img src="https://pic.imgdb.cn/item/61373a5744eaada739c3d3e0.jpg"></p>
+<p><img src="https://pic.imgdb.cn/item/61373a6744eaada739c3eef3.jpg"></p>
+<h3 id="3-事件类参数"><a href="#3-事件类参数" class="headerlink" title="3. 事件类参数"></a>3. <strong>事件类参数</strong></h3><p>事件类参数的作用是对随机事件进行调控，从而使其遵照设定运行，如设置各种事件的百分比、设置事件生成所使用的种子值等。频率参数主要限制事件执行的时间间隔。</p>
+<p>1.执行指定脚本</p>
+<p><code>$ adb shell monkey -f &lt;scriptfile&gt; &lt;event-count&gt;</code></p>
+<p>eg：</p>
+<p><code>$ adb shell monkey -f /mnt/sdcard/test1</code></p>
+<p>2.伪随机数生成种子值</p>
+<p>使用 -s命令可以重复执行之前的伪随机操作。本身每次执行伪随机事件操作也会默认生成一个seed值</p>
+<p><code>$ adb shell monkey -s &lt;seed&gt; &lt;event-count&gt;</code></p>
+<p>eg:</p>
+<p><code>$ adb shell monkey -s 666 100</code></p>
+<p>3.设置间隔 如果你希望在每一个指令之间加上固定的间隔时间，可以用–throttle（注意，前面是–）命令。</p>
+<p><code>$ adb shell monkey --throttle &lt;milliseconds&gt;</code></p>
+<p>eg:</p>
+<p><code>$ adb shell monkey --throttle 3000  5</code></p>
+<p>–throttle：后面接时间，单位为ms（&lt;milliseconds&gt;），表示事件之间的固定延迟（即执行每一个指令间隔的时间），若不接该选项，monkey将不会延迟。</p>
+<p>4.调整触摸事件百分比</p>
+<p>如果你希望调整触摸事件的百分比，记住使用–pct-touch。</p>
+<p><code>$ adb shell monkey --pct-touch</code></p>
+<p>eg:</p>
+<p><code>$ adb shell monkey -v -v --pct-touch 100 200</code></p>
+<p>&lt;percent&gt;–pct-touch：后面接触摸事件百分比</p>
+<p>注意：触摸事件不单单是按键，它泛指发生在某一位置的一个down-up事件。</p>
+<p>5.调整手势事件百分比</p>
+<p><code>$ adb shell monkey --pct-motion</code></p>
+<p>eg:</p>
+<p><code>$ adb shell monkey -v -v --pct-motion 100 200</code></p>
+<p>6.调整应用启动事件的百分比</p>
+<p>如果你希望调整应用启动事件的百分比，记住使用–pct-app-switch。</p>
+<p><code>$ adb shell monkey --pct-appswtich &lt;percent&gt;</code></p>
+<p>–pct-appswitch：后面接应用启动事件百分比。</p>
+<p>应用启动事件（即activity launches）俗称打开应用，通过调用startActivity()方法最大限度地开启该package下的所有应用。</p>
+<p>7.调整屏幕旋转事件百分比</p>
+<p><code>$ adb shell monkey --pct-rotation &lt;percent&gt;</code></p>
+<p>–pct-rotation 后面接屏幕旋转事件的比例值。</p>
+<p>8.其他参数</p>
+<p><img src="https://pic.imgdb.cn/item/612f39d144eaada739af24b5.jpg"></p>
+<h3 id="4-约束类参数"><a href="#4-约束类参数" class="headerlink" title="4. 约束类参数"></a>4. <strong>约束类参数</strong></h3><p><em><strong>1.包约束</strong></em></p>
+<p>-p：后面接一个或多个包名（&lt;allowed-package-name&gt;），如果应用需要访问其他包里的Activity，那相关的包也需要在此同时指定。如果不指定任何包，monkey将允许系统启动全部包里的Activity。</p>
+<p><code>$ adb shell monkey -p &lt;allowed-package-name&gt; &lt;event-count&gt;</code></p>
+<p>eg：</p>
+<p><code>$ adb shell monkey -p com.tal.kaoyan 500</code></p>
+<p><code>$ adb shell monkey -p com.tal.kaoyan -p com.tencent.mm 500</code></p>
+<p><em><strong>2.activity类约束</strong></em></p>
+<p>如果你希望将monkey限制在一个或几个类别中，使用如下命令：</p>
+<p><code>adb shell monkey -c &lt;main-category&gt; &lt;event-count&gt;</code></p>
+<p>以下命令表示运行Intent.CATEGORY_LAUNCHER类别的Activity并发送1000个随机事件。</p>
+<p><code>$ adb shell monkey -c Intent.CATEGORY_LAUNCHER  1000</code></p>
+<p><img src="https://pic.imgdb.cn/item/61373b6e44eaada739c58cfd.jpg"></p>
+<h3 id="5-调试类参数"><a href="#5-调试类参数" class="headerlink" title="5. 调试类参数"></a>5. <strong>调试类参数</strong></h3><p><em><strong>1.应用程序崩溃后继续发送事件</strong></em></p>
+<p>如果你希望monkey在应用程序崩溃后继续发送事件，则需要用到–ignore-crashes命令</p>
+<p><code>$ adb shell monkey --ignore-crashes &lt;event-count&gt; </code></p>
+<p>在设置此选项后，当应用程序崩溃或发生失控异常时，monkey将继续运行直到计数完成。如果不设置此选项，monkey遇到上述崩溃或异常将停止运行。</p>
+<p><em><strong>2.超时错误继续发送事件</strong></em></p>
+<p>如果你希望monkey在任何超时错误发生后继续发送事件，则需要用到–ignore-timeouts命令。</p>
+<p><code>$ adb shell monkey --ignore-timeouts</code></p>
+<p>&lt;event-count&gt;–ignore-timeouts：在设置此选项后，当应用程序发生任何超时错误（如ANR，即Application Not Responding）时，monkey将继续运行直到计数完成。如果不设置此选项，monkey遇到此类超时对话框将停止运行。</p>
+<p><em><strong>3.应用程序权限错误发生后继续发送事件</strong></em></p>
+<p>如果你希望monkey在应用程序权限错误发生后继续发送事件，则需要用到–ignore-security-exceptions命令。</p>
+<p><code>$ adb shell monkey --ignore-security-exceptions</code></p>
+<p>&lt;event-count&gt;–ignore-security-exceptions：在设置此选项后，当应用程序发生任何权限错误（如启动一个需要某些权限的Activity）时，monkey将继续运行直到计数完成。如果不设置此选项，monkey遇到此类权限错误将停止运行。</p>
+<p>4.其他</p>
+<p><img src="https://pic.imgdb.cn/item/612f3b1544eaada739b12a44.jpg"></p>
+<h1 id="九、Monkey参数应用综合案例"><a href="#九、Monkey参数应用综合案例" class="headerlink" title="九、Monkey参数应用综合案例"></a>九、<strong>Monkey参数应用综合案例</strong></h1><h3 id="测试场景"><a href="#测试场景" class="headerlink" title="测试场景"></a><strong>测试场景</strong></h3><p>测试考研帮app Android版。测试希望通过Monkey来模拟用户的随机操作，检查被测应用是否会出现异常（应用崩溃或者无响应）。</p>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a><strong>需求分析</strong></h3><p>1、测试是指定应用，因此需要使用-p指定被测app包名：com.tal.kaoyan</p>
+<p>2、这个测试的目的是希望模拟用户操作，因此需要让Monkey执行的事件尽可能地接近用户的常规操作，这样才可以最大限度地发现用户使用过程中可能出现的问题。因此需要对Monkey执行的事件百分比做一些调整:</p>
+<p>触摸事件和手势事件是用户最常见的操作，所以通过–pct-touch和–pct-motion将这两个事件的占比调整到40%与25%；目标应用包含了多个Activity，为了能覆盖大部分的Activity，所以通过–pct-appswitch将Activity切换的事件占比调整到10%；被测应用在测试中出现过不少横竖屏之间切换的问题，这个场景也必须关注，因此通过–pct-rotation把横竖屏切换事件调整到10%。</p>
+<p>3、使用-s参数来指定命令执行的seed值 Monkey会根据seed值来生成对应事件流，同一个seed生成的事件流是完全相同的。这里指定了seed值，是为了测试发现问题时，便于进行问题复现。</p>
+<p>4、使用–throttle参数来控制Monkey每个操作之间的时间间隔 指定操作之间的时间间隔，一方面是希望能更接近用户的操作场景，正常用户操作都会有一定的时间间隔；另一方面也是不希望因为过于频繁的操作而导致系统崩溃，尤其是在比较低端的手机上执行测试时。因此通过–throttle设置Monkey每个操作固定延迟0.4秒。</p>
+<p>5、使用–ignore-crashs和–ignore-timeouts参数使Monkey遇到意外时能继续执行 在执行Monkey测试时，会因为应用的崩溃或没有响应而意外终止，所以需要在命令中增加限制参数–ignore-crash和–ignore-timeouts，让Monkey在遇到崩溃或没有响应的时候，能在日志中记录相关信息，并继续执行后续的测试。</p>
+<p>6、使用-v指定log的详细级别 Monkey的日志输出有3个级别：日志的级别越高，其详细程度也越高。为了方便问题的定位，这里将日志设为 -v -v.</p>
+<h3 id="测试命令"><a href="#测试命令" class="headerlink" title="测试命令"></a><strong>测试命令</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.tal.kaoyan</span><br><span class="line">--pct-touch 40 --pct-motion 25 </span><br><span class="line">--pct-appswitch 10</span><br><span class="line">--pct-rotation 5</span><br><span class="line">-s 1666 --throttle 400</span><br><span class="line">--ignore-crashes</span><br><span class="line">--ignore-timeouts</span><br><span class="line">-v -v  200</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
