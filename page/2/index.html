@@ -71,6 +71,345 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-移动端测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/01/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/" class="article-date">
+  <time class="dt-published" datetime="2021-09-01T07:49:01.000Z" itemprop="datePublished">2021-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/01/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/">移动端测试概述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-移动端操作系统与app类型"><a href="#1-移动端操作系统与app类型" class="headerlink" title="1.移动端操作系统与app类型"></a>1.<strong>移动端操作系统与app类型</strong></h1><h3 id="主流"><a href="#主流" class="headerlink" title="主流"></a><strong>主流</strong></h3><p>Andriod、iOS</p>
+<h3 id="非主流"><a href="#非主流" class="headerlink" title="非主流"></a><strong>非主流</strong></h3><p>Winphone、黑莓、塞班、ubuntu、Asha、Tizen、Jolla、Firefox OS、鸿蒙os</p>
+<h3 id="非智能机"><a href="#非智能机" class="headerlink" title="非智能机"></a><strong>非智能机</strong></h3><p>MTK平台、S40平台</p>
+<h1 id="2-app测试框架介绍"><a href="#2-app测试框架介绍" class="headerlink" title="2.app测试框架介绍"></a>2.<strong>app</strong>测试框架介绍</h1><h2 id="1-Andriod："><a href="#1-Andriod：" class="headerlink" title="1. Andriod："></a>1. <strong>Andriod</strong>：</h2><h3 id="Monkey"><a href="#Monkey" class="headerlink" title="Monkey"></a><strong>Monkey</strong></h3><p>​    Monkey是一个程序，运行在您的模拟器或设备上，并生成伪随机的用户事件流，如点击，触摸或手势，以及一些系统级事件。 您可以使用Monkey以随机但可重复的方式对您正在开发的应用程序进行压力测试。</p>
+<h3 id="MonkeyRunner"><a href="#MonkeyRunner" class="headerlink" title="MonkeyRunner"></a><strong>MonkeyRunner</strong></h3><p>​    MonkeyRunner工具是使用Jython(使用Java编程语言实现的Python)写出来的，它提供了多个API，通过monkeyrunner API 可以写一个Python的程序来模拟操作控制Android设备app,测试其稳定性并通过截屏可以方便地记录出现的问题。</p>
+<h3 id="UIAutomator"><a href="#UIAutomator" class="headerlink" title="UIAutomator"></a><strong>UIAutomator</strong></h3><p>​    Android 4.3发布的时候包含了一种新的测试工具–uiautomator，uiautomator是用来做UI测试的。也就是普通的手工测试，点击每个控件元素 看看输出的结果是否符合预期。比如 登陆界面 分别输入正确和错误的用户名密码然后点击登陆按钮看看是否能否登陆以及是否有错误提示等。</p>
+<h3 id="Appium"><a href="#Appium" class="headerlink" title="Appium"></a><strong>Appium</strong></h3><p>​    Appium是一个开源的、跨平台的自动化测试工具，支持IOS、Android和FirefoxOS平台。 通过Appium，开发者无需重新编译app或者做任何调整，就可以测试移动应用，可以使测试代码访问后端API和数据库。</p>
+<p>​    它是通过驱动苹果的UIAutomation和Android的UiAutomator框架来实现的双平台支持，同时绑定了Selenium WebDriver用于老的Android平台测试。开发者可以使用WebDriver兼容的任何语言编写测试脚本，如Java， OC， JS， PHP，Python， Ruby， C#，Clojure 和Perl语言。</p>
+<h2 id="2-ios"><a href="#2-ios" class="headerlink" title="2.ios"></a>2.ios</h2><h3 id="XCTest"><a href="#XCTest" class="headerlink" title="XCTest"></a><strong>XCTest</strong></h3><p>​        XCTest是苹果在iOS 7和Xcode5引入的一个简单而强大的测试框架，它的测试编写起来非常简单，并且遵循xUnit风格。XCTest的优点是与Xcode深度集成，有专门的Test导航栏，但因为受限于官方测试API，因此功能不是很丰富。</p>
+<h3 id="UIAutomation"><a href="#UIAutomation" class="headerlink" title="UIAutomation"></a><strong>UIAutomation</strong></h3><p>​        UIAutomation是苹果提供的UI自动化测试框架，使用Javascript编写。基于UIAutomation有扩展型的工具框架和驱动型的框架。</p>
+<p>​        扩展型框架以JavaScript扩展库方法提供了很多好用js工具，注入式的框架通常会提供一些Lib或者是Framework，要求测试人员在待测应用的代码工程中导入这些内容，框架可以通过他们完成对app的驱动。</p>
+<p>​        驱动型UI Automation 在自动化测试底层使用了UI Automation库，通过TCP通信的方式驱动UI Automation来完成自动化测试，通过这种方式，编辑脚本的语言不再局限于JavaScript。</p>
+<h3 id="Appium-1"><a href="#Appium-1" class="headerlink" title="Appium"></a><strong>Appium</strong></h3><p>​        它是通过驱动苹果的UIAutomation来执行自动化</p>
+<h1 id="3-Android-app-类型"><a href="#3-Android-app-类型" class="headerlink" title="3.Android app 类型"></a>3.Android app 类型</h1><h2 id="1-原生应用程序：（Native-App）"><a href="#1-原生应用程序：（Native-App）" class="headerlink" title="1. 原生应用程序：（Native App）"></a>1. <strong>原生应用程序：（Native App）</strong></h2><p>原生APP是什么？原生APP就是利用Android、iOS平台官方的开发语言、开发类库、工具进行开发。比如安卓的java语言，iOS的object-c 语言。在应用性能上和交互体验上应该是最好的。</p>
+<p>优点：</p>
+<p>1、可访问手机所有功能、可实现功能最齐全；</p>
+<p>2、运行速度快、性能高，绝佳的用户体验；</p>
+<p>3、支持大量图形和动画。不卡，反应快。</p>
+<p>4、比较快捷地使用设备端提供的接口，处理速度上有优势。</p>
+<p>缺点：</p>
+<p>\1. 在过去主要是成本高、周期长，Android和iOS都需要单独开发。</p>
+<p>\2. 更新版本需要重新下载安装包。</p>
+<h2 id="2-混合应用程序（Hybrid-App）"><a href="#2-混合应用程序（Hybrid-App）" class="headerlink" title="2. 混合应用程序（Hybrid App）"></a>2. <strong>混合应用程序（Hybrid App）</strong></h2><p>即利用了原生APP的开发技术还应用了HTML5开发技术，是原生和HTML5技术的混合应用。混合比例不限。</p>
+<p>优点：</p>
+<p>1、开发周期短；</p>
+<p>2、功能更新发布快；</p>
+<p>缺点：</p>
+<p>1、用户体验不如本地应用；</p>
+<p>2、性能稍慢（需要连接网络）；</p>
+<h2 id="3-Web版APP-（Web-App）"><a href="#3-Web版APP-（Web-App）" class="headerlink" title="3. Web版APP （Web App）"></a>3. <strong>Web版APP （Web App）</strong></h2><p>本质就是浏览器功能的叠加，用普通Web开发语言开发的，通过浏览器运行。</p>
+<p>优势：</p>
+<p>1、支持范围广；</p>
+<p>2、开发成本低、周期短。</p>
+<p>缺点：</p>
+<p>1、对联网要求高，离线不能做任何操作；</p>
+<p>2、功能有限；</p>
+<p>3、运行速度慢，页面不能承载太多东西；</p>
+<p>4、图片和动画支持性不高；</p>
+<p>5、如果用户使用更多的新型浏览器，那么就会出现运行问题。</p>
+<h2 id="4-Web-App、Hybrid-App、Native-App-技术特性"><a href="#4-Web-App、Hybrid-App、Native-App-技术特性" class="headerlink" title="4. Web App、Hybrid App、Native App 技术特性"></a>4. <strong>Web App、Hybrid App、Native App 技术特性</strong></h2><p><img src="https://pic.imgdb.cn/item/612f324a44eaada739a14efd.jpg"></p>
+<h2 id="5-手游app与手机App"><a href="#5-手游app与手机App" class="headerlink" title="5. 手游app与手机App"></a>5. <strong>手游app与手机App</strong></h2><p>手游一般使用引擎开发，现在著名的有cocos2d和unity3d。两者都是使用引擎自带的语言进行开发，主流的分别是c++和c#，虽然在开发过程中也有按钮等控件的概念，但当运行时由引擎渲染后就变成了一副简单的图片：</p>
+<p>手机App一般使用Android SDK开发，使用Java编写。通过Android提供的服务，我们可以获取App当前窗口的视图信息，进而查找和操作按钮等控件，以完成自动化测试，如Uiautomator。这个过程是标准化的，从技术上来说没有任何难度，因此各个公司各个App自动化测试的方法都大同小异。</p>
+<h1 id="4-Android-SDK介绍"><a href="#4-Android-SDK介绍" class="headerlink" title="4.Android    SDK介绍"></a>4.<strong>Android</strong>    <strong>SDK介绍</strong></h1><p>SDK：（software development kit）软件开发工具包。被软件开发工程师用于为特定的软件包、软件框架、硬件平台、操作系统等建立应用软件的开发工具的集合。</p>
+<p>因此，Android SDK 指的是Android专属的软件开发工具包。</p>
+<h1 id="5-Android-SDK环境搭建"><a href="#5-Android-SDK环境搭建" class="headerlink" title="5.Android SDK环境搭建"></a>5.<strong>Android SDK环境搭建</strong></h1><h2 id="1-配置jdk环境"><a href="#1-配置jdk环境" class="headerlink" title="1. 配置jdk环境"></a>1. <strong>配置</strong>jdk环境</h2><p>因为安卓用Java语言开发，所以安装安卓环境——首先需要安装配置好jdk环境。</p>
+<p><strong>推荐使用jdk 8以上的版本</strong></p>
+<h2 id="2-SDK下载"><a href="#2-SDK下载" class="headerlink" title="2. SDK下载"></a>2. <strong>SDK下载</strong></h2><p>Android SDK包下载</p>
+<ul>
+<li>官网下载：<a target="_blank" rel="noopener" href="https://android-sdk.en.softonic.com/download">https://android-sdk.en.softonic.com/download</a></li>
+<li>网盘下载： <a target="_blank" rel="noopener" href="http://tools.android-studio.org/index.php/sdk">http://tools.android-studio.org/index.php/sdk</a></li>
+</ul>
+<p>安装后启动 SDK Manager.exe 程序就可以看到Android SDK Mannerger的主界面。</p>
+<h3 id="Tools目录："><a href="#Tools目录：" class="headerlink" title="Tools目录："></a><strong>Tools目录：</strong></h3><p><strong>Android SDK Tools</strong>（必须，只需下载一个版本，一般选最新版本）：基础工具包，版本号带rc字样的是预览版。</p>
+<p><strong>Android SDK Platform-tools</strong>（必须，只需下载一个版本，一般选最新版本）：从android2.3开始划出此目录，存放公用开发工具，比如adb、sqlite3等，被划分到了这里。</p>
+<p><strong>Android SDK Build-tools</strong>（必须，可以安装多个版本）：Android项目构建工具。</p>
+<h3 id="Android-xxx（API-xx）目录（可选的各平台开发工具）："><a href="#Android-xxx（API-xx）目录（可选的各平台开发工具）：" class="headerlink" title="Android xxx（API xx）目录（可选的各平台开发工具）："></a>Android xxx（API xx）目录（可选的各平台开发工具）：</h3><p><img src="file:///C:\Users\adm\AppData\Local\Temp\ksohtml4312\wps3.jpg" alt="img"> </p>
+<p>· Documentation for AndroidSdk（可选）：安卓开发者官网的一些离线文档，不过下载下来打开也很慢，后面会提供另外一个离线版。</p>
+<p><strong>SDK Platform</strong>（必须）：对应平台的开发工具，需要在哪个版本的平台下开发就下载哪个。</p>
+<p>· Samples for SDK（可选，此项在高版本tools中已不提供，需要在IDE里通过Import Sample引入，当然也可以下载离线版）：内置的安卓示例程序，推荐安装。</p>
+<p>· Sources for Android SDK（可选）：安卓API的源代码，推荐安装。</p>
+<p>· ARM /Intel xxxx Image（可选）：各个以Image结尾的东西是支持相应平台的模拟器，我们就把它想象成一个刷机包吧。（使用真机调试或使用其它模拟器的话不需要安装）</p>
+<p>Extras目录（可选的扩展）：</p>
+<p><img src="file:///C:\Users\adm\AppData\Local\Temp\ksohtml4312\wps4.jpg" alt="img"> </p>
+<p>· Android Support Repository（可选）：主要是方便在gradle中使用Android Support Libraries，因为Google并没有把这些库发布到maven center或者jcenter去，而是使用了Google自己的maven仓库。</p>
+<p>· Intel x86 Emulator Accelerator(HAXM installer)（可选）：windows平台的Intel x86模拟器加速工具，配合Intel x86 atom/atom_64 System Image使用可加快模拟器的运行速度。</p>
+<h2 id="环境变量设置"><a href="#环境变量设置" class="headerlink" title="环境变量设置"></a><strong>环境变量设置</strong></h2><p>· 系统变量里面添加变量名 ANDROID_HOME 路径为实际存放SDk的路径</p>
+<h1 id="6。monkey"><a href="#6。monkey" class="headerlink" title="6。monkey"></a><strong>6。monkey</strong></h1><h2 id="一、Monkey简介"><a href="#一、Monkey简介" class="headerlink" title="一、Monkey简介"></a>一、<strong>Monkey简介</strong></h2><p>在Android的官方自动化测试领域有一只非常著名的“猴子”叫Monkey，这只“猴子”一旦启动，就会让被测的Android应用程序像猴子一样活蹦乱跳，到处乱跑。人们常用这只“猴子”来对被测程序进行压力测试，检查和评估被测程序的稳定性。</p>
+<p>Android官方对这只“猴子”的描述是这样的：</p>
+<p>The Monkey is a program that runs on your emulator or device and generates pseudo-random streams of user events such as clicks, touches, or gestures, as well as a number of system-level events. You can use the Monkey to stress-test applications that you are developing, in a random yet repeatable manner.</p>
+<p>Monkey是一个程序，运行在您的模拟器或设备上，并生成伪随机的用户事件流，如点击，触摸或手势，以及一些系统级事件。 您可以使用Monkey以随机但可重复的方式对您正在开发的应用程序进行压力测试。</p>
+<p>monkey官方文档：<a target="_blank" rel="noopener" href="http://www.android-doc.com/tools/help/monkey.html">http://www.android-doc.com/tools/help/monkey.html</a></p>
+<h2 id="二、Moneky-路径"><a href="#二、Moneky-路径" class="headerlink" title="二、Moneky 路径"></a>二、<strong>Moneky 路径</strong></h2><p>Monkey程序是Android系统自带的，其启动脚本是位于Android系统的/system/bin目录的Monkey文件，其jar包是位于Android系统的/system/framework目录的Monkey.jar文件。用户主要是通过adb命令来启动Monkey的，Monkey在运行时，会根据命令行参数的配置，生成伪随机的事件流，并在Android设备上执行对应的测试事件。同时，Monkey还会对测试系统进行监测，当出现以下三种情况时会进行特殊处理：</p>
+<p>· 如限定了Monkey运行在特定包上，当监测到试图转到其他包的操作，将对其进行阻止。</p>
+<p>· 如应用程序崩溃或接收到任何失控异常，Monkey将记录对应的错误日志，并根据命令行参数判断是停止运行还是继续运行。</p>
+<p>· 如果应用程序发生了程序无响应（application not responding）的错误，Monkey将记录对应的错误日志，并根据命令行参数判断是停止运行还是继续运行。</p>
+<p>· 按照选定的不同级别的反馈信息，在Monkey中还可以看到其执行过程报告和生成的事件。</p>
+<h2 id="三、Monkey启动步骤"><a href="#三、Monkey启动步骤" class="headerlink" title="三、Monkey启动步骤"></a>三、<strong>Monkey启动步骤</strong></h2><ol>
+<li><p>连接模拟器</p>
+</li>
+<li><p>连接成功后输入命令</p>
+</li>
+</ol>
+<p><code>adb shell</code></p>
+<h2 id="四、进入到指定目录"><a href="#四、进入到指定目录" class="headerlink" title="四、进入到指定目录"></a>四、<strong>进入到指定目录</strong></h2><p><code>cd /system/bin</code></p>
+<ol start="3">
+<li>输入 monkey命令看到提示则说明启动成功。</li>
+</ol>
+<h2 id="五、强制关闭monkey"><a href="#五、强制关闭monkey" class="headerlink" title="五、强制关闭monkey"></a>五、<strong>强制关闭monkey</strong></h2><ol>
+<li><p>adb shell ps 查看全部在运行的进程</p>
+</li>
+<li><p>查找出com.android.commands.monkey 进程PID</p>
+</li>
+<li><p>adb shell kill pid 杀掉monkey进程</p>
+</li>
+</ol>
+<h2 id="六、monkey-命令"><a href="#六、monkey-命令" class="headerlink" title="六、monkey 命令"></a>六、<strong>monkey 命令</strong></h2><p>monkey命令格式如下：</p>
+<p><code>$ adb shell monkey [options] &lt;event-count&gt;</code></p>
+<p><strong>·</strong> <strong>[options]</strong> 是指monkey可传入的参数，是<strong>可选项</strong>（如果不指定options，Monkey将以无反馈模式启动，并把事件任意发送到安装在目标环境中的全部包）</p>
+<p>·<strong>&lt;event-count&gt;</strong> 是指随机发送事件数。如：输入100就是执行100个伪随机事件，为<strong>必选项</strong>。</p>
+<h2 id="七、操作事件简介"><a href="#七、操作事件简介" class="headerlink" title="七、操作事件简介"></a>七、<strong>操作事件简介</strong></h2><p>Monkey所执行的随机事件流中包含11大事件，分别是触摸事件、手势事件、二指缩放事件、轨迹事件、屏幕旋转事件、基本导航事件、主要导航事件、系统按键事件、启动Activity事件、键盘事件、其他类型事件。Monkey通过这11大事件来模拟用户的常规操作，对手机App进行稳定性测试。下面让我们来详细了解这11大事件。</p>
+<h3 id="1-触摸事件"><a href="#1-触摸事件" class="headerlink" title="1.触摸事件"></a><strong>1.触摸事件</strong></h3><p>触摸事件是指在屏幕某处按下并抬起的操作，可通过***–pct-touch***参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到。 该事件由一组Touch（ACTION_DOWN）和Touch（ACTION_UP）事件组成，在手机上看到实际操作类似于点击。</p>
+<h3 id="2-手势事件"><a href="#2-手势事件" class="headerlink" title="2.手势事件"></a><strong>2.手势事件</strong></h3><p>手势事件是指在屏幕某处的按下、随机移动、抬起的操作，即直线滑动操作。可通过***–pct-motion***参数来配置其事件百分比。</p>
+<p>该事件是由一个ACTION_DOWN事件、一系列ACTION_MOVE事件和一个ACTION_UP事件组成的，在手机上看到的实际操作是一个没有拐弯的直线滑动操作。</p>
+<h3 id="3-二指缩放事件"><a href="#3-二指缩放事件" class="headerlink" title="3.二指缩放事件"></a><strong>3.二指缩放事件</strong></h3><p>二指缩放事件是指在屏幕上的两处同时按下，并同时移动，最后同时抬起的操作，即智能机上的放大缩小手势操作。可通过–pct-pinchzoom参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到：</p>
+<p>该事件起始是一个ACTION_DOWN事件和一个ACTION_POINTER_DOWN事件，即模拟两个手指同时点下；中间是一系列的ACTION_MOVE事件，即两个手指同时在屏幕上直线滑动；结束是由一个ACTION_POINTER_UP事件和一个ACTION_UP事件组成的，即两个手指同时放开。</p>
+<h3 id="4-轨迹事件"><a href="#4-轨迹事件" class="headerlink" title="4.轨迹事件"></a><strong>4.轨迹事件</strong></h3><p>轨迹事件是由一个或多个随机的移动组成的，有时会伴随着点击。很早之前的Android手机带有轨迹球，这个事件就是模拟的轨迹球的操作。现在的手机几乎都没有轨迹球，但轨迹球事件中包含曲线滑动操作，如果被测程序需要曲线滑动时可以选用此参数。可通过–pct-trackball参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到：</p>
+<p>该事件是由一系列的Trackball（ACTION_MOVE）事件组成的，观察手机上的操作，即为一系列的曲线滑动操作。</p>
+<h3 id="5-屏幕旋转事件"><a href="#5-屏幕旋转事件" class="headerlink" title="5.屏幕旋转事件"></a><strong>5.屏幕旋转事件</strong></h3><p>屏幕旋转事件是一个隐藏事件，在Android官方文档中并没有记录这个事件。它其实是模拟的Android手机的横屏和竖屏切换。可通过–pct-rotation参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件由一个rotation事件组成，其中degree表示的是旋转方向，顺时针旋转，0表示旋转90度的方向，1表示旋转180度的方向，2表示旋转270度的方向，3表示旋转360度的方向。在执行过程中，可以看到手机屏幕在横竖屏之间不断地切换。</p>
+<h3 id="6-基本导航事件"><a href="#6-基本导航事件" class="headerlink" title="6.基本导航事件"></a><strong>6.基本导航事件</strong></h3><p>基本导航事件是指点击方向输入设备的上、下、左、右按键的操作，现在手机上很少有上、下、左、右按键，这种事件一般用得比较少。可通过–pct-nav参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到：</p>
+<p>该事件是由一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的，点击的就是上、下、左、右四个方向按键。</p>
+<h3 id="7-主要导航事件"><a href="#7-主要导航事件" class="headerlink" title="7.主要导航事件"></a><strong>7.主要导航事件</strong></h3><p>主要导航事件是指点击“主要导航”按键的操作，这些按键通常会导致UI界面中的动作，如键盘的中间键、回退按键、菜单按键。可通过–pct-majornav参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件是由一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的，点击的按键就是中间键和菜单键。</p>
+<h3 id="8-系统按键事件"><a href="#8-系统按键事件" class="headerlink" title="8.系统按键事件"></a><strong>8.系统按键事件</strong></h3><p>系统按键事件是指点击系统保留使用的按键的操作，如点击Home键、返回键、音量调节键等。可通过–pct-syskeys参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件是由一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的，点击的就是上面说到的几个系统按键。</p>
+<h3 id="9-启动Activity事件"><a href="#9-启动Activity事件" class="headerlink" title="9.启动Activity事件"></a><strong>9.启动Activity事件</strong></h3><p>启动Activity事件是指在手机上启动一个Activity的操作。在随机的时间间隔中，Monkey将执行一个startActivity（）方法，作为最大限度上覆盖被测包中全部Activity的一种方法。可通过–pct-appswitch参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件是由一个Switch操作组成的，从手机上看，上面的操作实际是打开了com.android.settings这个应用的一个com.android.settings.Settings的Activity界面。</p>
+<h3 id="10-键盘事件"><a href="#10-键盘事件" class="headerlink" title="10.键盘事件"></a><strong>10.键盘事件</strong></h3><p>键盘事件主要是一些与键盘相关的操作。比如点击输入框、键盘弹起、点击输入框以外区域、键盘收回等。可通过–pct-flip参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 如日志所示，这里主要是键盘的打开和关闭操作。</p>
+<h3 id="11-其他类型事件"><a href="#11-其他类型事件" class="headerlink" title="11.其他类型事件"></a><strong>11.其他类型事件</strong></h3><p>其他类型事件包括了除前面提到的10种事件外其他所有的事件，如按键、其他不常用的设备上的按钮等。可通过–pct-anyevent参数来配置其事件百分比。从Monkey执行该事件对外输出的日志可以看到： [代码] 该事件是由一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的，点击的按键就是其他的一些系统按键，如字母按键、数字按键等。因为现在手机很少带字母按键或数字按键，所以这个事件一般使用得比较少。</p>
+<h1 id="八、monkey-参数"><a href="#八、monkey-参数" class="headerlink" title="八、monkey 参数"></a>八、<strong>monkey 参数</strong></h1><h3 id="1-参数分类"><a href="#1-参数分类" class="headerlink" title="1. 参数分类"></a>1. <strong>参数分类</strong></h3><p>· 常规类参数</p>
+<p>· 事件类参数</p>
+<p>· 约束类参数</p>
+<p>· 调试类参数</p>
+<h3 id="2-常规类参数"><a href="#2-常规类参数" class="headerlink" title="2. 常规类参数"></a>2. <strong>常规类参数</strong></h3><p>常规类参数包括帮助参数和日志信息参数。帮助参数用于输出Monkey命令使用指导；日志信息参数将日志分为三个级别，级别越高，日志的信息越详细。</p>
+<p>1.帮助类参数</p>
+<p>monkey -h</p>
+<p>2.日志级别</p>
+<p><code>$ adb shell monkey -v &lt;event-count&gt;</code></p>
+<p>-v：打印出日志信息，每个-v将增加反馈信息的级别。-v越多日志信息越详细，不过目前最多支持3个-v，即：</p>
+<p><img src="https://pic.imgdb.cn/item/61373a5744eaada739c3d3e0.jpg"></p>
+<p><img src="https://pic.imgdb.cn/item/61373a6744eaada739c3eef3.jpg"></p>
+<h3 id="3-事件类参数"><a href="#3-事件类参数" class="headerlink" title="3. 事件类参数"></a>3. <strong>事件类参数</strong></h3><p>事件类参数的作用是对随机事件进行调控，从而使其遵照设定运行，如设置各种事件的百分比、设置事件生成所使用的种子值等。频率参数主要限制事件执行的时间间隔。</p>
+<p>1.执行指定脚本</p>
+<p><code>$ adb shell monkey -f &lt;scriptfile&gt; &lt;event-count&gt;</code></p>
+<p>eg：</p>
+<p><code>$ adb shell monkey -f /mnt/sdcard/test1</code></p>
+<p>2.伪随机数生成种子值</p>
+<p>使用 -s命令可以重复执行之前的伪随机操作。本身每次执行伪随机事件操作也会默认生成一个seed值</p>
+<p><code>$ adb shell monkey -s &lt;seed&gt; &lt;event-count&gt;</code></p>
+<p>eg:</p>
+<p><code>$ adb shell monkey -s 666 100</code></p>
+<p>3.设置间隔 如果你希望在每一个指令之间加上固定的间隔时间，可以用–throttle（注意，前面是–）命令。</p>
+<p><code>$ adb shell monkey --throttle &lt;milliseconds&gt;</code></p>
+<p>eg:</p>
+<p><code>$ adb shell monkey --throttle 3000  5</code></p>
+<p>–throttle：后面接时间，单位为ms（&lt;milliseconds&gt;），表示事件之间的固定延迟（即执行每一个指令间隔的时间），若不接该选项，monkey将不会延迟。</p>
+<p>4.调整触摸事件百分比</p>
+<p>如果你希望调整触摸事件的百分比，记住使用–pct-touch。</p>
+<p><code>$ adb shell monkey --pct-touch</code></p>
+<p>eg:</p>
+<p><code>$ adb shell monkey -v -v --pct-touch 100 200</code></p>
+<p>&lt;percent&gt;–pct-touch：后面接触摸事件百分比</p>
+<p>注意：触摸事件不单单是按键，它泛指发生在某一位置的一个down-up事件。</p>
+<p>5.调整手势事件百分比</p>
+<p><code>$ adb shell monkey --pct-motion</code></p>
+<p>eg:</p>
+<p><code>$ adb shell monkey -v -v --pct-motion 100 200</code></p>
+<p>6.调整应用启动事件的百分比</p>
+<p>如果你希望调整应用启动事件的百分比，记住使用–pct-app-switch。</p>
+<p><code>$ adb shell monkey --pct-appswtich &lt;percent&gt;</code></p>
+<p>–pct-appswitch：后面接应用启动事件百分比。</p>
+<p>应用启动事件（即activity launches）俗称打开应用，通过调用startActivity()方法最大限度地开启该package下的所有应用。</p>
+<p>7.调整屏幕旋转事件百分比</p>
+<p><code>$ adb shell monkey --pct-rotation &lt;percent&gt;</code></p>
+<p>–pct-rotation 后面接屏幕旋转事件的比例值。</p>
+<p>8.其他参数</p>
+<p><img src="https://pic.imgdb.cn/item/612f39d144eaada739af24b5.jpg"></p>
+<h3 id="4-约束类参数"><a href="#4-约束类参数" class="headerlink" title="4. 约束类参数"></a>4. <strong>约束类参数</strong></h3><p><em><strong>1.包约束</strong></em></p>
+<p>-p：后面接一个或多个包名（&lt;allowed-package-name&gt;），如果应用需要访问其他包里的Activity，那相关的包也需要在此同时指定。如果不指定任何包，monkey将允许系统启动全部包里的Activity。</p>
+<p><code>$ adb shell monkey -p &lt;allowed-package-name&gt; &lt;event-count&gt;</code></p>
+<p>eg：</p>
+<p><code>$ adb shell monkey -p com.tal.kaoyan 500</code></p>
+<p><code>$ adb shell monkey -p com.tal.kaoyan -p com.tencent.mm 500</code></p>
+<p><em><strong>2.activity类约束</strong></em></p>
+<p>如果你希望将monkey限制在一个或几个类别中，使用如下命令：</p>
+<p><code>adb shell monkey -c &lt;main-category&gt; &lt;event-count&gt;</code></p>
+<p>以下命令表示运行Intent.CATEGORY_LAUNCHER类别的Activity并发送1000个随机事件。</p>
+<p><code>$ adb shell monkey -c Intent.CATEGORY_LAUNCHER  1000</code></p>
+<p><img src="https://pic.imgdb.cn/item/61373b6e44eaada739c58cfd.jpg"></p>
+<h3 id="5-调试类参数"><a href="#5-调试类参数" class="headerlink" title="5. 调试类参数"></a>5. <strong>调试类参数</strong></h3><p><em><strong>1.应用程序崩溃后继续发送事件</strong></em></p>
+<p>如果你希望monkey在应用程序崩溃后继续发送事件，则需要用到–ignore-crashes命令</p>
+<p><code>$ adb shell monkey --ignore-crashes &lt;event-count&gt; </code></p>
+<p>在设置此选项后，当应用程序崩溃或发生失控异常时，monkey将继续运行直到计数完成。如果不设置此选项，monkey遇到上述崩溃或异常将停止运行。</p>
+<p><em><strong>2.超时错误继续发送事件</strong></em></p>
+<p>如果你希望monkey在任何超时错误发生后继续发送事件，则需要用到–ignore-timeouts命令。</p>
+<p><code>$ adb shell monkey --ignore-timeouts</code></p>
+<p>&lt;event-count&gt;–ignore-timeouts：在设置此选项后，当应用程序发生任何超时错误（如ANR，即Application Not Responding）时，monkey将继续运行直到计数完成。如果不设置此选项，monkey遇到此类超时对话框将停止运行。</p>
+<p><em><strong>3.应用程序权限错误发生后继续发送事件</strong></em></p>
+<p>如果你希望monkey在应用程序权限错误发生后继续发送事件，则需要用到–ignore-security-exceptions命令。</p>
+<p><code>$ adb shell monkey --ignore-security-exceptions</code></p>
+<p>&lt;event-count&gt;–ignore-security-exceptions：在设置此选项后，当应用程序发生任何权限错误（如启动一个需要某些权限的Activity）时，monkey将继续运行直到计数完成。如果不设置此选项，monkey遇到此类权限错误将停止运行。</p>
+<p>4.其他</p>
+<p><img src="https://pic.imgdb.cn/item/612f3b1544eaada739b12a44.jpg"></p>
+<h1 id="九、Monkey参数应用综合案例"><a href="#九、Monkey参数应用综合案例" class="headerlink" title="九、Monkey参数应用综合案例"></a>九、<strong>Monkey参数应用综合案例</strong></h1><h3 id="测试场景"><a href="#测试场景" class="headerlink" title="测试场景"></a><strong>测试场景</strong></h3><p>测试考研帮app Android版。测试希望通过Monkey来模拟用户的随机操作，检查被测应用是否会出现异常（应用崩溃或者无响应）。</p>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a><strong>需求分析</strong></h3><p>1、测试是指定应用，因此需要使用-p指定被测app包名：com.tal.kaoyan</p>
+<p>2、这个测试的目的是希望模拟用户操作，因此需要让Monkey执行的事件尽可能地接近用户的常规操作，这样才可以最大限度地发现用户使用过程中可能出现的问题。因此需要对Monkey执行的事件百分比做一些调整:</p>
+<p>触摸事件和手势事件是用户最常见的操作，所以通过–pct-touch和–pct-motion将这两个事件的占比调整到40%与25%；目标应用包含了多个Activity，为了能覆盖大部分的Activity，所以通过–pct-appswitch将Activity切换的事件占比调整到10%；被测应用在测试中出现过不少横竖屏之间切换的问题，这个场景也必须关注，因此通过–pct-rotation把横竖屏切换事件调整到10%。</p>
+<p>3、使用-s参数来指定命令执行的seed值 Monkey会根据seed值来生成对应事件流，同一个seed生成的事件流是完全相同的。这里指定了seed值，是为了测试发现问题时，便于进行问题复现。</p>
+<p>4、使用–throttle参数来控制Monkey每个操作之间的时间间隔 指定操作之间的时间间隔，一方面是希望能更接近用户的操作场景，正常用户操作都会有一定的时间间隔；另一方面也是不希望因为过于频繁的操作而导致系统崩溃，尤其是在比较低端的手机上执行测试时。因此通过–throttle设置Monkey每个操作固定延迟0.4秒。</p>
+<p>5、使用–ignore-crashs和–ignore-timeouts参数使Monkey遇到意外时能继续执行 在执行Monkey测试时，会因为应用的崩溃或没有响应而意外终止，所以需要在命令中增加限制参数–ignore-crash和–ignore-timeouts，让Monkey在遇到崩溃或没有响应的时候，能在日志中记录相关信息，并继续执行后续的测试。</p>
+<p>6、使用-v指定log的详细级别 Monkey的日志输出有3个级别：日志的级别越高，其详细程度也越高。为了方便问题的定位，这里将日志设为 -v -v.</p>
+<h3 id="测试命令"><a href="#测试命令" class="headerlink" title="测试命令"></a><strong>测试命令</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -p com.tal.kaoyan</span><br><span class="line">--pct-touch 40 --pct-motion 25 </span><br><span class="line">--pct-appswitch 10</span><br><span class="line">--pct-rotation 5</span><br><span class="line">-s 1666 --throttle 400</span><br><span class="line">--ignore-crashes</span><br><span class="line">--ignore-timeouts</span><br><span class="line">-v -v  200</span><br></pre></td></tr></table></figure>
+
+<h1 id="十、Monkey自定义脚本"><a href="#十、Monkey自定义脚本" class="headerlink" title="十、Monkey自定义脚本"></a>十、Monkey自定义脚本</h1><h4 id="自定义脚本的稳定性测试"><a href="#自定义脚本的稳定性测试" class="headerlink" title="自定义脚本的稳定性测试"></a><strong>自定义脚本的稳定性测试</strong></h4><p>常规Monkey测试执行的是随机的事件流，但如果只是想让Monkey测试某个特定场景这时候就需要用到自定义脚本了，Monkey支持执行用户自定义脚本的测试，用户只需要按照Monkey脚本的规范编写好脚本，存放到手机上，启动Monkey通过-f 参数调用脚本即可。</p>
+<h4 id="测试案例"><a href="#测试案例" class="headerlink" title="测试案例"></a><strong>测试案例</strong></h4><p>启动考研帮app3.1.0，然后跳过升级提示和引导页面，进入到登录界面并输入用户名密码进行登录。</p>
+<h4 id="需求分析-1"><a href="#需求分析-1" class="headerlink" title="需求分析"></a><strong>需求分析</strong></h4><p>· 从用户角度来思考步骤该怎样进行？</p>
+<p>· 要操作的元素该如何定位？</p>
+<p>· 怎样将操作步骤转化为测试脚本？</p>
+<h5 id="获取元素坐标点位置"><a href="#获取元素坐标点位置" class="headerlink" title="获取元素坐标点位置"></a><em><strong>获取元素坐标点位置</strong></em></h5><p>Monkey脚本只能通过<em><strong>坐标</strong></em>的方式来定位点击和移动事件的屏幕位置，这里就需要提前获取坐标信息。获取坐标信息的方法很多，最简单的方法就是打开手机中的开发人员选项，打开“显示指针位置”。随后，在屏幕上的每次操作，在导航栏上都会显示坐标信息。</p>
+<h5 id="Monkey脚本API简介"><a href="#Monkey脚本API简介" class="headerlink" title="Monkey脚本API简介"></a><em><strong>Monkey脚本API简介</strong></em></h5><p>LaunchActivity(pkg_name, cl_name)：启动应用的Activity。参数：包名和启动的Activity。</p>
+<p>Tap(x, y, tapDuration)： 模拟一次手指单击事件。参数：x,y为控件坐标，tapDuration为点击的持续时间，此参数可省略。</p>
+<p>UserWait(sleepTime)： 休眠一段时间</p>
+<p>DispatchPress(keyName)： 按键。参数： keycode。 RotateScreen(rotationDegree, persist)： 旋转屏幕。 参数：rotationDegree为旋转角度， e.g. 1代表90度；persist表示旋转之后是否固定，0表示旋转后恢复，非0则表示固定不变。</p>
+<p>DispatchString(input)： 输入字符串。</p>
+<p>DispatchFlip(true/false)： 打开或者关闭软键盘。</p>
+<p>PressAndHold(x, y, pressDuration)： 模拟长按事件。</p>
+<p>Drag(xStart, yStart, xEnd, yEnd, stepCount)： 用于模拟一个拖拽操作。</p>
+<p>PinchZoom(x1Start, y1Start, x1End, y1End, x2Start, y2Start, x2End, y2End, stepCount)： 模拟缩放手势。</p>
+<p>LongPress()： 长按2秒。</p>
+<p>DeviceWakeUp()： 唤醒屏幕。</p>
+<p>PowerLog(power_log_type, test_case_status)： 模拟电池电量信息。</p>
+<p>WriteLog()： 将电池信息写入sd卡。</p>
+<p>RunCmd(cmd)： 运行shell命令。</p>
+<p>DispatchPointer(downtime,eventTime,action,x,yxpressure,size,metastate,xPrecision,yPrecision,device,edgeFlags)： 向指定位置，发送单个手势。</p>
+<p>DispatchPointer(downtime,eventTime,action,x,yxpressure,size,metastate,xPrecision,yPrecision,device,edgeFilags)： 发送按键消息。</p>
+<p>LaunchInstrumentation(test_name,runner_name)： 运行一个instrumentation测试用例。</p>
+<p>DispatchTrackball： 模拟发送轨迹球事件。</p>
+<p>ProfileWait： 等待5秒。</p>
+<p>StartCaptureFramerate()： 获取帧率。</p>
+<p>EndCaptureFramerate(input)： 结束获取帧率。</p>
+<h5 id="Monkey脚本格式"><a href="#Monkey脚本格式" class="headerlink" title="Monkey脚本格式"></a><em><strong>Monkey脚本格式</strong></em></h5><p>Monkey脚本主要包含两部分，一部分是头文件信息，一部分是具体的monkey命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">type = raw events  </span><br><span class="line"></span><br><span class="line">count = 1  </span><br><span class="line"></span><br><span class="line">speed = 1.0  </span><br><span class="line"></span><br><span class="line">//下面为monkey命令 </span><br><span class="line"></span><br><span class="line">start data &gt;&gt;  </span><br><span class="line"></span><br><span class="line">具体的monkey脚本内容 </span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a><em><strong>编写脚本</strong></em></h5><p>kyb.txt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#头文件信息</span><br><span class="line"></span><br><span class="line">type = raw events </span><br><span class="line"></span><br><span class="line">count = 1</span><br><span class="line"></span><br><span class="line">speed = 1.0</span><br><span class="line"></span><br><span class="line">#启动测试</span><br><span class="line">start data &gt;&gt;</span><br><span class="line"></span><br><span class="line">LaunchActivity(com.tal.kaoyan,com.tal.kaoyan.ui.activity.SplashActivity)</span><br><span class="line">UserWait(2000)</span><br><span class="line"></span><br><span class="line">Tap(624,900,1000) #点击取消升级</span><br><span class="line">UserWait(2000)</span><br><span class="line"></span><br><span class="line">Tap(806,64,1000) #点击跳过</span><br><span class="line">UserWait(2000)</span><br><span class="line"></span><br><span class="line">Tap(217,378,1000) #点击用户名输入框</span><br><span class="line">DispatchString(账户)</span><br><span class="line">UserWait(2000)</span><br><span class="line"></span><br><span class="line">Tap(197,461,1000) #点击密码输入框</span><br><span class="line">DispatchString(密码)</span><br><span class="line">UserWait(2000)</span><br><span class="line"></span><br><span class="line">Tap(343,637,1000) #点击登录按钮</span><br></pre></td></tr></table></figure>
+
+<h5 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a><em><strong>执行脚本</strong></em></h5><p>脚本编写完成后，传到手机设备上，然后执行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb push C:\Users\admin\Desktop\kyb1.txt /sdcard</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">adb shell monkey -f /sdcard/kyb1.txt -v 1</span><br></pre></td></tr></table></figure>
+
+<p>执行结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\admin&gt;adb shell monkey -f /sdcard/kyb.txt -v 1</span><br><span class="line">:Monkey: seed=1524592021303 count=1</span><br><span class="line">:IncludeCategory: android.intent.category.LAUNCHER</span><br><span class="line">:IncludeCategory: android.intent.category.MONKEY</span><br><span class="line">Replaying 0 events with speed 1.0</span><br><span class="line">:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.tal.kaoyan/.ui.activity.SplashActivity;end</span><br><span class="line">    // Allowing start of Intent &#123; act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.tal.kaoyan/.ui.activity.SplashActivity &#125; in package com.tal.kaoyan</span><br><span class="line">:Sending Touch (ACTION_DOWN): 0:(267.0,1233.0)</span><br><span class="line">    // Allowing start of Intent &#123; act=com.android.systemui.recent.action.TOGGLE_RECENTS cmp=com.android.systemui/.recent.RecentsActivity &#125; in package com.android.systemui</span><br><span class="line">:Sending Touch (ACTION_UP): 0:(267.0,1233.0)</span><br><span class="line">Events injected: 5</span><br><span class="line">:Sending rotation degree=0, persist=false</span><br><span class="line">:Dropped: keys=0 pointers=0 trackballs=0 flips=0 rotations=0</span><br><span class="line">## Network stats: elapsed time=7201ms (0ms mobile, 0ms wifi, 7201ms not connected)</span><br><span class="line">// Monkey finished</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h4><p>头文件代码书写注意“=”两边预留空格，否则会出现如下报错。</p>
+<p><code>java.lang.NumberFormatException: Invalid int: &quot;&quot;</code></p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a><strong>参考资料</strong></h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mgzc-1508873480/p/7911373.html">https://www.cnblogs.com/mgzc-1508873480/p/7911373.html</a></p>
+<h1 id="十一、MonkeyRunner-API"><a href="#十一、MonkeyRunner-API" class="headerlink" title="十一、MonkeyRunner API"></a>十一、MonkeyRunner API</h1><p>MonkeyRunner工具主要有三个类：</p>
+<ol>
+<li><p>MonkeyRunner</p>
+</li>
+<li><p>MonkeyDevice</p>
+</li>
+<li><p>MonkeyImage</p>
+</li>
+</ol>
+<p>官方API文档 ：<a target="_blank" rel="noopener" href="http://www.android-doc.com/tools/help/monkeyrunner_concepts.html">http://www.android-doc.com/tools/help/monkeyrunner_concepts.html#</a></p>
+<h3 id="1-MonkeyRunner类："><a href="#1-MonkeyRunner类：" class="headerlink" title="1.MonkeyRunner类："></a><strong>1.MonkeyRunner类：</strong></h3><p>MonkeyRunner提供连接真机和模拟器、输入、暂停、警告框等方法。</p>
+<p><img src="https://pic.imgdb.cn/item/61373d7c44eaada739c8ddf5.jpg"></p>
+<h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a><strong>常用方法</strong></h5><p>waitForConnection(float timeout,string deviceid)，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from com.android.monkeyrunner import MonkeyRunner as mr</span><br><span class="line">print(&quot;connect devices...&quot;)</span><br><span class="line"></span><br><span class="line">device=mr.waitForConnection()</span><br><span class="line"># device=mr.waitForConnection(5,&#x27;127.0.0.1:62001&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-MonkeyDevice类"><a href="#2-MonkeyDevice类" class="headerlink" title="2.MonkeyDevice类"></a><em><strong>2.MonkeyDevice类</strong></em></h3><p>MonkeyDevice类提供了安装和卸载程序包、开启Activity、发送按键和点击事件、运行测试包等方法。</p>
+<p><img src="https://pic.imgdb.cn/item/61373da744eaada739c92549.jpg"></p>
+<h4 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a><strong>常用方法</strong></h4><p>· installPackage (string path)</p>
+<p>· removePackage (string package)</p>
+<p>· startActivity (string uri, string action, string data, string mimetype, iterable categories dictionary extras, component component, flags)</p>
+<p>· touch (integer x, integer y, integer type)</p>
+<p><em><strong>touch参数说明</strong></em></p>
+<p>integer x，x坐标值。<br>integer y，y坐标值。<br>integer type，key event类型（如DOWN、UP、DOWN_AND_UP）。</p>
+<p>DOWN为按下事件 UP为弹起事件 DOWN_AND_UP为按下弹起事件。</p>
+<p>· drag (tuple start, tuple end, float duration, integer steps)</p>
+<p><em><strong>drag参数详细说明如下：</strong></em></p>
+<p>tuple start，拖拽起始位置，为tuple类型的(x,y)坐标点。<br>tuple end，拖拽终点位置，为tuple类型的(x,y)坐标点。<br>float duration，拖拽手势持续时间，默认为1.0s。<br>-integer steps，插值点的步数，默认值为10。</p>
+<h5 id="实践案例："><a href="#实践案例：" class="headerlink" title="实践案例："></a><em><strong>实践案例：</strong></em></h5><p>连接设备，安装考研帮App并启动</p>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><em><strong>代码实现</strong></em></h5><p>kyb_start.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from com.android.monkeyrunner import MonkeyRunner as mr</span><br><span class="line">from com.android.monkeyrunner import MonkeyDevice as md</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&quot;connect devices...&quot;)</span><br><span class="line">device=mr.waitForConnection()</span><br><span class="line"></span><br><span class="line">print(&quot;install app...&quot;)</span><br><span class="line">device.installPackage(r&#x27;C:\Users\admin\Desktop\kaoyan3.1.0.apk&#x27;)</span><br><span class="line"></span><br><span class="line">package = &#x27;com.tal.kaoyan&#x27;</span><br><span class="line">activity = &#x27;com.tal.kaoyan.ui.activity.SplashActivity&#x27;</span><br><span class="line">runComponent = package + &#x27;/&#x27; + activity</span><br><span class="line"></span><br><span class="line">print(&quot;launch App...&quot;)</span><br><span class="line">device.startActivity(component=runComponent)</span><br></pre></td></tr></table></figure>
+
+<p>代码执行方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">monkeyrunner scripfile</span><br><span class="line"></span><br><span class="line">C:\Users\admin&gt;monkeyrunner E:\monkeyrunner_script\kyb.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-MonkeyImage类"><a href="#3-MonkeyImage类" class="headerlink" title="3.MonkeyImage类"></a><em><strong>3.MonkeyImage类</strong></em></h3><p>MonkeyImage类在测试过程中用来保存各种格式的测试截图，并可以进行图像对比。</p>
+<p><img src="https://pic.imgdb.cn/item/61373df744eaada739c9c171.jpg"></p>
+<h4 id="常用方法-2"><a href="#常用方法-2" class="headerlink" title="常用方法"></a><strong>常用方法</strong></h4><p>· takeSnapshot() 进行屏幕截图</p>
+<p>· writeToFile() 保存图像文件到指定的文件路径</p>
+<h4 id="用法示例"><a href="#用法示例" class="headerlink" title="用法示例"></a><strong>用法示例</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from com.android.monkeyrunner import MonkeyImage as mi  </span><br><span class="line">print(&quot;takeSnapshot&quot;)</span><br><span class="line">screenshot=device.takeSnapshot()  </span><br><span class="line">screenshot.writeToFile(r&#x27;E:\monkeyrunner_script\test.png&#x27;,&#x27;png&#x27;)  </span><br></pre></td></tr></table></figure>
+
+<h2 id="综合实践"><a href="#综合实践" class="headerlink" title="综合实践"></a><em><strong>综合实践</strong></em></h2><h4 id="测试场景-1"><a href="#测试场景-1" class="headerlink" title="测试场景"></a><strong>测试场景</strong></h4><p>· 连接设备，自动安装并启动考研帮app</p>
+<p>· 启动后登录账号，然后截图并保存到指定文件位置。</p>
+<h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a><strong>思路分析</strong></h4><p>· 连接设备</p>
+<p>· 安装app</p>
+<p>· 启动app</p>
+<p>· 输入用户名密码点击登录按钮</p>
+<p>· 截图</p>
+<h4 id="脚本实现"><a href="#脚本实现" class="headerlink" title="脚本实现"></a><strong>脚本实现</strong></h4><p>kyb_login.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">from com.android.monkeyrunner import MonkeyRunner as mr</span><br><span class="line">from com.android.monkeyrunner import MonkeyDevice as md</span><br><span class="line">from com.android.monkeyrunner import MonkeyImage as mi</span><br><span class="line"></span><br><span class="line">print(&quot;connect devices...&quot;)</span><br><span class="line"></span><br><span class="line">device=mr.waitForConnection()</span><br><span class="line"></span><br><span class="line">print(&quot; install app&quot;)</span><br><span class="line">device.installPackage(r&#x27;C:\Users\admin\Desktop\kaoyan3.1.0.apk&#x27;)</span><br><span class="line"></span><br><span class="line">print(&quot;launch app...&quot;)</span><br><span class="line">package=&#x27;com.tal.kaoyan&#x27;</span><br><span class="line">activity=&#x27;com.tal.kaoyan.ui.activity.SplashActivity&#x27;</span><br><span class="line">runComponent=package+&#x27;/&#x27;+activity</span><br><span class="line"></span><br><span class="line">device.startActivity(component=runComponent)</span><br><span class="line">mr.sleep(3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&quot;touch cancel button&quot;)</span><br><span class="line">device.touch(618,895,&#x27;DOWN_AND_UP&#x27;)</span><br><span class="line">mr.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&quot;touch skip button&quot;)</span><br><span class="line">device.touch(804,67,&#x27;DOWN_AND_UP&#x27;)</span><br><span class="line">mr.sleep(1)</span><br><span class="line"></span><br><span class="line">print(&quot;input username and password&quot;)</span><br><span class="line">device.touch(57,373,&#x27;DOWN_AND_UP&#x27;)</span><br><span class="line">mr.sleep(2)</span><br><span class="line">device.type(账户)</span><br><span class="line"></span><br><span class="line">device.touch(152,480,&#x27;DOWN_AND_UP&#x27;)</span><br><span class="line">mr.sleep(2)</span><br><span class="line">device.type(密码)</span><br><span class="line">mr.sleep(2)</span><br><span class="line"></span><br><span class="line">print(&quot;touch login button&quot;)</span><br><span class="line">device.touch(331,634,&#x27;DOWN_AND_UP&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&quot;takeSnapshot&quot;)</span><br><span class="line">screenshot=device.takeSnapshot()</span><br><span class="line">screenshot.writeToFile(r&#x27;D:\monkeyrunner\kyb.png&#x27;,&#x27;png&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a><em><strong>注意事项</strong></em></h3><p>方法调用错误</p>
+<p><code>AttributeError: type object &#39;com.android.monkeyrunner.XXXXX&#39; has no attribute XXXXXX</code></p>
+<p>检查调用的方法名是否写错，特别是注意区分大小写。</p>
+<p>字符编码错误</p>
+<p><code>SyntaxError: Non-ASCII character in file &#39;E:\monkeyrunner_script\kyb.py&#39;, but no encoding declared;</code></p>
+<p>需要在代码顶部补充 # -<strong>- coding: utf-8 -</strong>- 或者去掉代码中的中文字符</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/01/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/" data-id="ckt17z8lg0000zgty0nqrbuga" data-title="移动端测试概述" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-黑盒测试方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/08/31/%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/" class="article-date">
@@ -1452,6 +1791,10 @@
       <ul>
         
           <li>
+            <a href="/2021/09/08/appium%E5%AD%A6%E4%B9%A0/">appium学习</a>
+          </li>
+        
+          <li>
             <a href="/2021/09/07/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">python单元测试</a>
           </li>
         
@@ -1465,10 +1808,6 @@
         
           <li>
             <a href="/2021/09/03/javascript%E5%9F%BA%E7%A1%80/">javascript基础</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/02/web%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/">web前端基础</a>
           </li>
         
       </ul>
